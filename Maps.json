@@ -655,7 +655,7 @@
   "Custom Time Trials": [
 
     {"packname": "Pure Time Trials (DLC maps)",
-    "packdescription": "Mirror's Edge gameplay distilled down to its purest form and its purest vision in nine races across eight all-new and totally redesigned Time Trial maps. No cops, no guns, no city. Pure aesthetics, agility and flow that will challenge any Runner.\n\nNote — DLC maps appear in the regular time trials tab. Includes PS3-exclusive Synesthesia map and Keku's Actino Ultra map.",
+    "packdescription": "Mirror's Edge gameplay distilled down to its purest form and its purest vision in nine races across eight all-new and totally redesigned Time Trial maps. No cops, no guns, no city. Pure aesthetics, agility and flow that will challenge any Runner.\n\nNote — DLC maps appear in the regular time trials tab. Includes the PS3-exclusive Synesthesia map.",
     "author": "DICE",
     "date": "Jan 29th, 2009",
     "url": "https://archive.mirrorsedgearchive.org/Mirror's%20Edge%20(2008)/Mods/unlisted_softsoundd/Mirror's%20Edge%20Map%20Manager/Pure%20Time%20Trials%20(DLC%20Maps).zip",
@@ -1560,6 +1560,17 @@
       "StretchNameId": "ETTS_TutorialA01"}
       ]
     },
+
+    {"FriendlyName": "Actino Ultra",
+    "author": "Keku",
+    "date": "May 17th, 2015",
+    "url": "https://archive.mirrorsedgearchive.org/Mirror's%20Edge%20(2008)/Mods/unlisted_softsoundd/Mirror's%20Edge%20Map%20Manager/Custom%20Time%20Trials/Actino%20Ultra.zip",
+    "speedrunid": "drppxxew",
+    "zipsize": "125126488",
+    "image": "https://live.staticflickr.com/65535/55053574764_843d9b8398_z.jpg",
+    "Description": "Checkpoints from the Actino and Actino Rise DLC time trials combined into one.",
+    "MapFileName": "TT_Actino_Ultra",
+    "StretchNameId": "ETTS_TutorialA01"},
 
     {"packname": "Xirion",
     "packdescription": "A custom time trial pack by Keku.",
