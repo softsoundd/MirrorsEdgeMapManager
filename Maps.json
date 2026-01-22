@@ -678,14 +678,6 @@
       "Rating2Time": "75",
       "Rating3Time": "65"},
 
-      {"FriendlyName": "ACTINO ULTRA",
-      "MapFileName": "TT_Actino_Ultra",
-      "StretchNameId": "ETTS_TutorialA01",
-      "QualifyingTime": "100",
-      "Rating1Time": "100",
-      "Rating2Time": "75",
-      "Rating3Time": "67"},
-
       {"FriendlyName": "CHROMA",
       "MapFileName": "TT_Chroma",
       "StretchNameId": "ETTS_TutorialA01",
@@ -1999,3 +1991,4 @@
 
   ]
 }
+
