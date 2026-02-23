@@ -744,6 +744,51 @@
       ]
     },
 
+    {"packname": "Pure Time Trials Prototypes",
+    "packdescription": "A collection of prototype Pure Time Trial maps from a leaked development Xbox 360 build (dated October 23, 2008). Ported to PC by Keku.",
+    "author": "DICE",
+    "date": "Oct 23rd, 2008",
+    "url": "https://archive.mirrorsedgearchive.org/Mirror's%20Edge%20(2008)/Mods/unlisted_softsoundd/Mirror's%20Edge%20Map%20Manager/Custom%20Time%20Trials/Pure%20Time%20Trials%20Prototypes.zip",
+    "zipsize": "275590392",
+    "image": "https://live.staticflickr.com/65535/55111706514_29425d54a5_z.jpg",
+    "packedmaps": [
+      {"FriendlyName": "Pure Time Trial Prototype 1",
+      "Description": "A leaked prototype version of a unique Pure Time Trial map not included in the final DLC release.",
+      "MapFileName": "TT_PTT_Prototype01_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 2 (Actino)",
+      "Description": "A leaked prototype version of the Actino Pure Time Trial DLC map.",
+      "MapFileName": "TT_PTT_Prototype02_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 3 (Actino Rise)",
+      "Description": "A leaked prototype version of the Actino Rise Pure Time Trial DLC map.",
+      "MapFileName": "TT_PTT_Prototype03_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 4 (Flow)",
+      "Description": "A leaked prototype version of the Flow Pure Time Trial DLC map.",
+      "MapFileName": "TT_PTT_Prototype04_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 5 (Razzmatazz)",
+      "Description": "A leaked prototype version of the Razzmatazz Pure Time Trial DLC map.",
+      "MapFileName": "TT_PTT_Prototype05_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 6 (Velocity)",
+      "Description": "A leaked prototype version of the Velocity Pure Time Trial DLC map.",
+      "MapFileName": "TT_PTT_Prototype06_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+
+      {"FriendlyName": "Pure Time Trial Prototype 7",
+      "Description": "A leaked prototype version of a unique Pure Time Trial map not included in the final DLC release.",
+      "MapFileName": "TT_PTT_Prototype07_p",
+      "StretchNameId": "ETTS_TutorialA01"},
+      ]
+    },
+
     {"packname": "Backwards Time Trials",
     "packdescription": "Original time trials, but played in reverse! These trials are not beginner friendly.",
     "author": "Toyro98",
@@ -1991,4 +2036,5 @@
 
   ]
 }
+
 
