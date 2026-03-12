@@ -1,0 +1,862 @@
+<Window x:Class="MirrorsEdgeMapManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Title="Mirror's Edge Map Manager"
+        Height="800" Width="1250"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="Icon.ico"
+        Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+        
+        <Style x:Key="CategoryHeaderStyle" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
+            <Setter Property="CornerRadius" Value="4,4,0,0"/>
+            <Setter Property="Padding" Value="12,8"/>
+        </Style>
+        
+        <Style x:Key="MapListStyle" TargetType="ListView">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}"/>
+        </Style>
+    </Window.Resources>
+
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <Grid>
+            <!-- Loading Overlay -->
+            <Grid Panel.ZIndex="100" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}">
+                <Border Background="#80000000">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                     Value="0" IsIndeterminate="True"
+                                     Width="60" Height="60"/>
+                        <TextBlock Text="{Binding LoadingStatus}" 
+                                   Foreground="White" 
+                                   FontSize="14" 
+                                   Margin="0,15,0,0"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="320"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Game Path Field (spans columns 0-2) -->
+                <Border Grid.Row="0" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="3"
+                        BorderBrush="{DynamicResource MaterialDesignDivider}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Height="36"
+                        Margin="0,0,10,10">
+                    <TextBlock Text="{Binding GameInstallPath, TargetNullValue='No directory selected.'}"
+                               VerticalAlignment="Center"
+                               Padding="10,0"
+                               TextTrimming="CharacterEllipsis"/>
+                </Border>
+                
+                <!-- Game Path Buttons (aligned with column 3) -->
+                <Grid Grid.Row="0"
+                      Grid.Column="3"
+                      Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0"
+                                Orientation="Horizontal">
+                        <Button Click="BrowseFolder_Click"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                Height="36"
+                                Padding="10,5">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FolderSearchOutline" 
+                                                         VerticalAlignment="Center" 
+                                                         Margin="0,0,8,0"/>
+                                <TextBlock Text="Select Game Directory"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignIconButton}"
+                                ToolTip="Move map install location"
+                                Command="{Binding MoveMapLocationCommand}"
+                                IsEnabled="{Binding IsMemmInteractionEnabled}"
+                                Margin="5,0,0,0">
+                            <materialDesign:PackIcon Kind="FolderMove" Width="20" Height="20"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Button Grid.Column="2"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="About MEMM"
+                            Command="{Binding ShowAboutCommand}"
+                            HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="Information" Width="24" Height="24"/>
+                    </Button>
+                </Grid>
+
+                <!-- Status Row -->
+                <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,10,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <WrapPanel Grid.Column="0">
+                        <!-- Documents Status -->
+                        <Border Background="{Binding DocumentsStatusBackground}"
+                                BorderBrush="{Binding DocumentsStatusColor}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="10,6"
+                                Margin="0,0,10,5">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FileDocument" 
+                                                         VerticalAlignment="Center"
+                                                         Margin="0,0,8,0"
+                                                         Width="16" Height="16"
+                                                         Foreground="{Binding DocumentsStatusColor}"/>
+                                <TextBlock VerticalAlignment="Center">
+                                    <Run Text="Documents Configs:" FontWeight="Medium" Foreground="#424242"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding DocumentsStatusValue}" FontWeight="Bold" Foreground="{Binding DocumentsStatusColor}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Unlocked Configs Status -->
+                        <Border Background="{Binding PatchStatusBackground}"
+                                BorderBrush="{Binding PatchStatusColor}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="10,6"
+                                Margin="0,0,10,5"
+                                Cursor="Hand"
+                                ToolTip="Click to toggle config lock"
+                                MouseDown="UnlockedConfigsChip_MouseDown">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.8"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FileCog" 
+                                                         VerticalAlignment="Center"
+                                                         Margin="0,0,8,0"
+                                                         Width="16" Height="16"
+                                                         Foreground="{Binding PatchStatusColor}"/>
+                                <TextBlock VerticalAlignment="Center">
+                                    <Run Text="Unlocked Configs:" FontWeight="Medium" Foreground="#424242"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding PatchStatusValue}" FontWeight="Bold" Foreground="{Binding PatchStatusColor}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Dependencies Management -->
+                        <Border Background="{Binding DependenciesChipBackground}"
+                                BorderBrush="{Binding DependenciesChipBorder}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Padding="10,6"
+                                Margin="0,0,10,5"
+                                IsEnabled="{Binding IsMemmInteractionEnabled}"
+                                Cursor="Hand"
+                                ToolTip="Manage dependencies"
+                                MouseDown="DependenciesChip_MouseDown">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.8"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Package" 
+                                                         VerticalAlignment="Center"
+                                                         Margin="0,0,8,0"
+                                                         Width="16" Height="16"
+                                                         Foreground="{Binding DependenciesChipForeground}"/>
+                                <TextBlock Text="Dependencies" 
+                                           FontWeight="Medium" 
+                                           Foreground="{Binding DependenciesChipForeground}"
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </WrapPanel>
+
+                    <StackPanel Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top">
+                        <CheckBox IsChecked="{Binding IsMemmDisabled}"
+                                  Content="Disable MEMM"
+                                  Command="{Binding ToggleMemmCommand}"
+                                  CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"
+                                  VerticalAlignment="Center"
+                                  Margin="0,0,10,5"/>
+                        <Button Content="Uninstall MEMM"
+                                Command="{Binding UninstallMemmCommand}"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                VerticalAlignment="Center"
+                                Margin="0,0,0,5"/>
+                    </StackPanel>
+                </Grid>
+                
+                <!-- Storage Info (aligned with map details column) -->
+                <Border Grid.Row="1" 
+                        Grid.Column="3"
+                        Background="White"
+                        BorderBrush="#BDBDBD"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Padding="10,6"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,0,0,15">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Harddisk" 
+                                                 VerticalAlignment="Center"
+                                                 Margin="0,0,8,0"
+                                                 Width="16" Height="16"
+                                                 Foreground="#757575"/>
+                        <TextBlock Text="{Binding MapsStorageInfo}"
+                                   VerticalAlignment="Center"
+                                   FontWeight="Bold" 
+                                   Foreground="#757575"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Main Content Area -->
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="320"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Custom Maps Column -->
+                    <Border Grid.Column="0" Margin="0,0,5,0" IsEnabled="{Binding IsMemmInteractionEnabled}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Border Grid.Row="0" Style="{StaticResource CategoryHeaderStyle}">
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Right" 
+                                            Content="Select All"
+                                            Click="SelectAllCustomMaps_Click"
+                                            Foreground="White"
+                                            BorderBrush="White"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            FontSize="11"
+                                            Padding="8,4"
+                                            Height="26"/>
+                                    <TextBlock Text="Custom Maps" 
+                                               FontWeight="Bold" 
+                                               FontSize="14"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </Border>
+                            
+                            <!-- Sorting Buttons -->
+                            <Border Grid.Row="1" 
+                                    Background="#F5F5F5"
+                                    Padding="8,5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Sort:" 
+                                               FontSize="11" 
+                                               VerticalAlignment="Center"
+                                               Opacity="0.7"
+                                               Margin="0,0,8,0"/>
+                                    <Button Content="Date"
+                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                            FontSize="10"
+                                            Padding="8,4"
+                                            Height="24"
+                                            Margin="0,0,5,0"
+                                            Click="SortCustomMapsDate_Click"/>
+                                    <Button Content="A-Z"
+                                            Style="{StaticResource MaterialDesignFlatButton}"
+                                            FontSize="10"
+                                            Padding="8,4"
+                                            Height="24"
+                                            Click="SortCustomMapsAlpha_Click"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <ListView Grid.Row="2" 
+                                      x:Name="CustomMapsListView"
+                                      ItemsSource="{Binding CustomMaps}"
+                                      Style="{StaticResource MapListStyle}"
+                                      SelectionChanged="MapListView_SelectionChanged">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Grid.Column="0" 
+                                                      IsChecked="{Binding IsSelected}"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,0,8,0"/>
+                                            <TextBlock Grid.Column="1" 
+                                                       Text="{Binding Name}" 
+                                                       VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <materialDesign:PackIcon Grid.Column="2"
+                                                                     Kind="CheckCircle"
+                                                                     Foreground="#4CAF50"
+                                                                     Width="16"
+                                                                     Height="16"
+                                                                     VerticalAlignment="Center"
+                                                                     Margin="5,0,0,0"
+                                                                     Visibility="{Binding IsInstalled, Converter={StaticResource BoolToVis}}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Border>
+
+                    <!-- Custom Time Trials Column -->
+                    <Border Grid.Column="1" Margin="5,0,5,0" IsEnabled="{Binding IsMemmInteractionEnabled}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Border Grid.Row="0" Style="{StaticResource CategoryHeaderStyle}">
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Right" 
+                                            Content="Select All"
+                                            Click="SelectAllTimeTrials_Click"
+                                            Foreground="White"
+                                            BorderBrush="White"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            FontSize="11"
+                                            Padding="8,4"
+                                            Height="26"/>
+                                    <TextBlock Text="Custom Time Trials" 
+                                               FontWeight="Bold" 
+                                               FontSize="14"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </Border>
+                            
+                            <!-- Sorting Buttons -->
+                            <StackPanel Grid.Row="1" 
+                                        Orientation="Horizontal" 
+                                        Background="#F5F5F5">
+                                <TextBlock Text="Sort:" 
+                                           FontSize="11" 
+                                           VerticalAlignment="Center"
+                                           Opacity="0.7"
+                                           Margin="8,5,8,5"/>
+                                <Button Content="Date"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        FontSize="10"
+                                        Padding="8,4"
+                                        Height="24"
+                                        Margin="0,5,5,5"
+                                        Click="SortTimeTrialsDate_Click"/>
+                                <Button Content="A-Z"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        FontSize="10"
+                                        Padding="8,4"
+                                        Height="24"
+                                        Margin="0,5,8,5"
+                                        Click="SortTimeTrialsAlpha_Click"/>
+                            </StackPanel>
+                            
+                            <ListView Grid.Row="2" 
+                                      x:Name="TimeTrialsListView"
+                                      ItemsSource="{Binding CustomTimeTrials}"
+                                      Style="{StaticResource MapListStyle}"
+                                      SelectionChanged="MapListView_SelectionChanged">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Grid.Column="0" 
+                                                      IsChecked="{Binding IsSelected}"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,0,8,0"/>
+                                            <TextBlock Grid.Column="1" 
+                                                       Text="{Binding Name}" 
+                                                       VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <materialDesign:PackIcon Grid.Column="2"
+                                                                     Kind="CheckCircle"
+                                                                     Foreground="#4CAF50"
+                                                                     Width="16"
+                                                                     Height="16"
+                                                                     VerticalAlignment="Center"
+                                                                     Margin="5,0,0,0"
+                                                                     Visibility="{Binding IsInstalled, Converter={StaticResource BoolToVis}}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Border>
+
+                    <!-- Story Experiences Column -->
+                    <Border Grid.Column="2" Margin="5,0,10,0" IsEnabled="{Binding IsMemmInteractionEnabled}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Border Grid.Row="0" Style="{StaticResource CategoryHeaderStyle}">
+                                <DockPanel>
+                                    <Button DockPanel.Dock="Right" 
+                                            Content="Select All"
+                                            Click="SelectAllStory_Click"
+                                            Foreground="White"
+                                            BorderBrush="White"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            FontSize="11"
+                                            Padding="8,4"
+                                            Height="26"/>
+                                    <TextBlock Text="Story Experiences" 
+                                               FontWeight="Bold" 
+                                               FontSize="14"
+                                               Foreground="White"
+                                               VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </Border>
+                            
+                            <!-- Sorting Buttons -->
+                            <StackPanel Grid.Row="1" 
+                                        Orientation="Horizontal" 
+                                        Background="#F5F5F5">
+                                <TextBlock Text="Sort:" 
+                                           FontSize="11" 
+                                           VerticalAlignment="Center"
+                                           Opacity="0.7"
+                                           Margin="8,5,8,5"/>
+                                <Button Content="Date"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        FontSize="10"
+                                        Padding="8,4"
+                                        Height="24"
+                                        Margin="0,5,5,5"
+                                        Click="SortStoryDate_Click"/>
+                                <Button Content="A-Z"
+                                        Style="{StaticResource MaterialDesignFlatButton}"
+                                        FontSize="10"
+                                        Padding="8,4"
+                                        Height="24"
+                                        Margin="0,5,8,5"
+                                        Click="SortStoryAlpha_Click"/>
+                            </StackPanel>
+                            
+                            <ListView Grid.Row="2" 
+                                      x:Name="StoryListView"
+                                      ItemsSource="{Binding StoryExperiences}"
+                                      Style="{StaticResource MapListStyle}"
+                                      SelectionChanged="MapListView_SelectionChanged">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <CheckBox Grid.Column="0" 
+                                                      IsChecked="{Binding IsSelected}"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,0,8,0"/>
+                                            <TextBlock Grid.Column="1" 
+                                                       Text="{Binding Name}" 
+                                                       VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <materialDesign:PackIcon Grid.Column="2"
+                                                                     Kind="CheckCircle"
+                                                                     Foreground="#4CAF50"
+                                                                     Width="16"
+                                                                     Height="16"
+                                                                     VerticalAlignment="Center"
+                                                                     Margin="5,0,0,0"
+                                                                     Visibility="{Binding IsInstalled, Converter={StaticResource BoolToVis}}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </Border>
+
+                    <!-- Details Panel -->
+                    <Border Grid.Column="3" 
+                            BorderBrush="{DynamicResource MaterialDesignDivider}"
+                            BorderThickness="1"
+                            CornerRadius="4"
+                            Background="White">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Loading Indicator -->
+                            <Grid Grid.Row="0" 
+                                  Visibility="{Binding IsMapDetailsLoading, Converter={StaticResource BoolToVis}}"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center">
+                                <StackPanel>
+                                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                 IsIndeterminate="True"
+                                                 Width="50"
+                                                 Height="50"
+                                                 HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Loading map details..."
+                                               FontSize="13"
+                                               Opacity="0.7"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,15,0,0"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- Placeholder Text (when no map selected) -->
+                            <TextBlock Grid.Row="0"
+                                       Text="Click on a map for details"
+                                       FontSize="14"
+                                       Opacity="0.5"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsMapDetailsLoading}" Value="False"/>
+                                                    <Condition Binding="{Binding ShowMapDetails}" Value="False"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <!-- Map Details -->
+                            <ScrollViewer Grid.Row="0" 
+                                          VerticalScrollBarVisibility="Auto"
+                                          Visibility="{Binding ShowMapDetails, Converter={StaticResource BoolToVis}}">
+                                <StackPanel Margin="15">
+                                    <TextBlock Text="{Binding SelectedMapName}" 
+                                               FontWeight="Bold" 
+                                               FontSize="16"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,0,10"/>
+                                    
+                                    <Image Source="{Binding SelectedMapImage}" 
+                                           Stretch="Uniform"
+                                           MaxHeight="200"
+                                           RenderOptions.BitmapScalingMode="HighQuality"
+                                           Margin="0,0,0,10"
+                                           Visibility="{Binding SelectedMapImage, Converter={StaticResource NullToVis}}"/>
+                                    
+                                    <TextBlock Text="{Binding SelectedMapAuthor}" 
+                                               TextWrapping="Wrap"
+                                               Opacity="0.8"
+                                               Margin="0,0,0,3"/>
+                                    <TextBlock Text="{Binding SelectedMapDate}" 
+                                               Opacity="0.8"
+                                               Margin="0,0,0,8"/>
+                                    <TextBlock Text="{Binding SelectedMapDescription}" 
+                                               TextWrapping="Wrap"
+                                               Opacity="0.9"
+                                               Margin="0,0,0,10"/>
+
+                                    <!-- Speedrun Loading Indicator -->
+                                    <StackPanel Orientation="Horizontal" 
+                                                Visibility="{Binding IsSpeedrunLoading, Converter={StaticResource BoolToVis}}"
+                                                Margin="0,5,0,0">
+                                        <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                                     IsIndeterminate="True"
+                                                     Width="20"
+                                                     Height="20"
+                                                     VerticalAlignment="Center"
+                                                     Margin="0,0,8,0"/>
+                                        <TextBlock Text="Loading speedrun stats..."
+                                                   FontSize="12"
+                                                   Opacity="0.6"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <!-- No Speedruns Found Message -->
+                                    <TextBlock Visibility="{Binding NoSpeedrunsFound, Converter={StaticResource BoolToVis}}"
+                                               Text="No speedruns found for this map"
+                                               FontSize="12"
+                                               Opacity="0.5"
+                                               FontStyle="Italic"
+                                               Margin="0,5,0,0"/>
+
+                                    <!-- Speedrun Stats Toggle Button -->
+                                    <Button Visibility="{Binding HasSpeedrunStats, Converter={StaticResource BoolToVis}}"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            FontSize="12"
+                                            Padding="12,6"
+                                            HorizontalAlignment="Left"
+                                            Command="{Binding ToggleSpeedrunStatsCommand}"
+                                            Margin="0,5,0,0">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <materialDesign:PackIcon VerticalAlignment="Center" 
+                                                                         Margin="0,0,8,0"
+                                                                         Width="16" Height="16">
+                                                    <materialDesign:PackIcon.Style>
+                                                        <Style TargetType="materialDesign:PackIcon">
+                                                            <Setter Property="Kind" Value="ChevronDown"/>
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsSpeedrunExpanded}" Value="True">
+                                                                    <Setter Property="Kind" Value="ChevronUp"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </materialDesign:PackIcon.Style>
+                                                </materialDesign:PackIcon>
+                                                <TextBlock Text="View Speedrun Leaderboard" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </ScrollViewer>
+
+                            <!-- Speedrun Stats Overlay -->
+                            <Grid Grid.Row="0" 
+                                  Panel.ZIndex="10"
+                                  x:Name="SpeedrunOverlay">
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsSpeedrunExpanded}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <DataTrigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                           From="0" To="1"
+                                                                           Duration="0:0:0.3"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </DataTrigger.EnterActions>
+                                                <DataTrigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                           From="1" To="0"
+                                                                           Duration="0:0:0.2"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </DataTrigger.ExitActions>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                
+                                <Border Background="White"
+                                        BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                                        BorderThickness="2"
+                                        CornerRadius="4"
+                                        Margin="5">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.3"/>
+                                    </Border.Effect>
+                                    
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        
+                                        <!-- Header -->
+                                        <Border Grid.Row="0" 
+                                                Background="{DynamicResource PrimaryHueMidBrush}"
+                                                Padding="15,10">
+                                            <DockPanel>
+                                                <Button DockPanel.Dock="Right"
+                                                        Style="{StaticResource MaterialDesignIconButton}"
+                                                        Command="{Binding ToggleSpeedrunStatsCommand}"
+                                                        Foreground="White"
+                                                        Width="28" Height="28">
+                                                    <materialDesign:PackIcon Kind="Close" Width="20" Height="20"/>
+                                                </Button>
+                                                <TextBlock Text="Speedrun.com Leaderboard" 
+                                                           FontWeight="SemiBold"
+                                                           FontSize="14"
+                                                           Foreground="White"
+                                                           VerticalAlignment="Center"/>
+                                            </DockPanel>
+                                        </Border>
+                                        
+                                        <!-- Content -->
+                                        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                                            <StackPanel Margin="15">
+                                                <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                                                        FontSize="12"
+                                                        Padding="10,6"
+                                                        HorizontalAlignment="Left"
+                                                        Command="{Binding OpenSpeedrunLeaderboardCommand}"
+                                                        Margin="0,0,0,15">
+                                                    <Button.Content>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <materialDesign:PackIcon Kind="OpenInNew" 
+                                                                                     VerticalAlignment="Center" 
+                                                                                     Margin="0,0,8,0"
+                                                                                     Width="16" Height="16"/>
+                                                            <TextBlock Text="View Full Leaderboard" VerticalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </Button.Content>
+                                                </Button>
+                                                
+                                                <ItemsControl ItemsSource="{Binding SpeedrunTopRuns}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}" 
+                                                                       FontSize="12"
+                                                                       TextWrapping="Wrap"
+                                                                       Margin="0,2"/>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+                            <!-- Action Buttons -->
+                            <StackPanel Grid.Row="1" Margin="15,10,15,15">
+                                <!-- Selected Maps Summary -->
+                                <Border BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                        BorderThickness="0,1,0,0"
+                                        Padding="0,10,0,10"
+                                        Margin="0,0,0,10">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding SelectedMapsCount}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="13"/>
+                                        <TextBlock Text="{Binding SelectedMapsSize}"
+                                                   FontSize="12"
+                                                   Opacity="0.7"
+                                                   Margin="0,2,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                                <!-- Download Progress -->
+                                <StackPanel Visibility="{Binding IsDownloading, Converter={StaticResource BoolToVis}}"
+                                            Margin="0,0,0,10">
+                                    <TextBlock Text="{Binding DownloadStatus}" 
+                                               FontSize="11"
+                                               TextTrimming="CharacterEllipsis"
+                                               Margin="0,0,0,5"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ProgressBar Grid.Column="0"
+                                                     Value="{Binding DownloadProgress}" 
+                                                     Maximum="100"
+                                                     Height="8"
+                                                     VerticalAlignment="Center"
+                                                     Margin="0,0,8,0"/>
+                                        <Button Grid.Column="1"
+                                                Style="{StaticResource MaterialDesignFlatButton}"
+                                                Content="Cancel"
+                                                FontSize="10"
+                                                Padding="8,0"
+                                                Height="20"
+                                                VerticalAlignment="Center"
+                                                Command="{Binding CancelDownloadCommand}"/>
+                                    </Grid>
+                                </StackPanel>
+
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                        Command="{Binding DownloadSelectedMapsCommand}"
+                                        Margin="0,0,0,8"
+                                        IsEnabled="{Binding CanDownloadMaps}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Download" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                        <TextBlock Text="Download Selected Maps"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        Command="{Binding UninstallSelectedMapsCommand}"
+                                        IsEnabled="{Binding IsMemmInteractionEnabled}"
+                                        Margin="0,0,0,8">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                        <TextBlock Text="Uninstall Selected Maps"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                                        Command="{Binding LaunchGameCommand}"
+                                        Background="#FFE0DD"
+                                        Foreground="Black"
+                                        BorderBrush="#FFCCC9">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Play" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                        <TextBlock Text="Launch Mirror's Edge"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>
+

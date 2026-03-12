@@ -1,0 +1,1063 @@
+[TdStart]
+PressStartText=Press START button
+PressAnyKeyText=Press Any Key
+CopyrightText=© 2009 EA Digital Illusions CE AB. All rights reserved.
+SaveInitErrorTitle=WARNING
+SaveInitErrorBodyTSE_NoSpace=No space to save. Your progress will not be saved.
+SaveInitErrorBodyTSE_FailedToOpen=Could not open save file. Your progress will not be saved.
+SaveInitErrorBodyTSE_FileDoesNotExist=Could not find save file. Your progress will not be saved.
+SaveInitErrorBodyTSE_FailedToSeek=COuld not save file. Your progress will not be saved.
+SaveInitErrorBodyTSE_AccessDenied=Could not open save file. Your progress will not be saved.
+SaveInitErrorBodyTSE_Corrupt=Save file appears to be damaged. Your progress will not be saved.
+SaveInitErrorBodyTSE_Unknown=Could not open save file. Your progress will not be saved.
+SaveInitNoProfileTitle=WARNING
+SaveInitNoProfileBody=You are not signed in. In order to save progress, you will need to be signed in. Do you want to sign in now?
+ProfileInitErrorTitle=WARNING
+ProfileInitErrorBodyTSE_NoSpace=There is no space to save your profile. Your progress will not be saved.
+ProfileInitErrorBodyTSE_FailedToOpen=Could not open profile. Your progress will not be saved.
+ProfileInitErrorBodyTSE_FileDoesNotExist=Could not find profile. Your progress will not be saved.
+ProfileInitErrorBodyTSE_AccessDenied=Could not open profile. Your progress will not be saved.
+ProfileInitErrorBodyTSE_Unknown=Could not open profile. Your progress will not be saved.
+SaveXenonReselectDeviceTitle=WARNING
+SaveXenonReselectDeviceBody=You have not selected a storage device. You will need to select a storage device in order to save game progress. Do you want to select one now?
+SaveXenonDeviceRemovedBody=Your selected storage device has been removed. You will need to select a storage device in order to save game progress. Do you want to select one now?
+SaveOverwriteCorruptProfileTitle=WARNING
+SaveOverwriteCorruptProfileBody=Your profile is damaged or can not be read. Do you want to overwrite it with a new profile?
+SaveOverwriteCorruptSavefileTitle=WARNING
+SaveOverwriteCorruptSavefileBody=Your save file is damaged or can not be read. Do you want to overwrite it with a new save file?
+SaveConfirmOverwriteBody=Do you really want to overwrite?
+SaveConfirmOverwriteTitle=CONFIRM
+SaveProfileErrorTitle=WARNING
+BadOwner_Caption = WARNING
+BadOwner_Message = The save data was created by another user. Please quit, delete the save data and run again.
+
+[TdMainMenu]
+StoryCaptionText=STORY
+NewGameText=NEW GAME
+NewGameDescText=Start a new game in Story Mode
+LoadGameText=CONTINUE GAME
+LoadGameDescText=Continue playing from last saved checkpoint in Story Mode
+LoadLevelText=PLAY CHAPTER
+LoadLevelDescText=Play a completed chapter from Story Mode
+TrainingText=TRAINING AREA
+TimeTrialCaptionText=RACE
+TimeTrialOnlineText=TIME TRIAL
+TimeTrialOnlineDescText=Race selected courses and increase your skill rating
+TimeTrialOfflineText=RACE OFFLINE
+TimeTrialOfflineDescText=Compete against yourself. Results will not affect your world ranking on the leaderboards.
+LevelRaceText=SPEED RUN
+LevelRaceDescText=Race against the clock through a full chapter from Story Mode
+CustomSpeedRunDescText=Race against the clock through a full chapter from Story Mode
+
+PersonalStatsText=MY PERSONAL STATS
+LeaderboardsText=LEADERBOARDS
+LeaderboardsDescText=View your world ranking and race any runner's ghost
+TimeAttackText=TIME TRIAL
+OptionsCaptionText=OPTIONS
+
+GameSettingsText=GAME SETTINGS
+GameSettingsDescText=Adjust game settings
+AudioVideoText=AUDIO/VIDEO
+AudioVideoDescText=Adjust audio/video settings
+AudioText=AUDIO
+AudioDesc=Adjust audio settings
+VideoText=VIDEO
+VideoDesc=Adjust video settings
+ControlsText=CONTROLS
+ControlsDescText=Adjust mouse & keyboard settings
+GamepadSettingsText=GAMEPAD SETUP
+GamepadSettingsDesc=TODO: Add GamepadSetup description.
+
+ExtrasCaptionText=EXTRAS
+DownloadText=DOWNLOADABLE CONTENT
+DownloadDescText=Access downloadable content.
+CreditsText=CREDITS
+CreditsDescText=View credits
+UnlocksText=UNLOCKABLES
+UnlocksDescText=View unlocked content
+XboxAchievementsText=ACHIEVEMENTS
+XboxAchievementsDescText=View Xbox 360 achievements
+NoFriendsUI_Title=MESSAGE
+NoFriendsUI_Message_XBOX=You need to be signed into Xbox LIVE to access the friends list.
+NoFriendsUI_Message_PS3=Unable to display friends. Ensure you have signed in.
+NoMarketplaceUI_Title=MESSAGE
+NoMarketplaceUI_Message=Unable to show Xbox LIVE Marketplace
+AchievementsFailed_Title=UNABLE TO SHOW ACHIVEMENTS
+AchievementsFailed_Message=You must have a gamer profile signed in to view achievements
+
+[TdLoadLevel]
+TitleLabelText=PLAY CHAPTER
+LevelRaceTimeText=SPEED RUN TIME:
+BagsFoundText=BAGS FOUND:
+
+[TdLoadCheckpoint]
+TitleLabelText=SELECT CHECKPOINT
+
+[TdDifficultySettings]
+TitleText=NEW GAME
+DifficultyText=CHOOSE DIFFICULTY
+DescriptionText=Normal difficulty is recommended for most players. Easy difficulty will mainly affect the combat experience. To unlock hard difficulty - complete the story mode on any other difficulty. Hard difficulty disables runner vision and makes combat much tougher.
+
+
+[TdTrainingChallenges]
+TitleText=TRAINING CHALLENGES
+CurrentChallengeTitleText=CURRENT CHALLENGE
+FinishedChallengesTitleText=COMPLETED CHALLENGES
+NoChallengesText=YOU HAVE NO COMPLETED CHALLENGES
+
+[TdPause]
+TitleText=PAUSE
+GamePausedText=GAME PAUSED
+ResumeGameText=RESUME GAME
+OptionsText=OPTIONS
+SelectStretchText=SELECT NEW COURSE
+QuitText=QUIT TO MAIN MENU
+
+[TdSPPause]
+LoadCheckpointText=LOAD LAST CHECKPOINT
+
+[TdTimeTrialPause]
+RestartStretchText=RESTART RACE
+ShowGhost=SHOW GHOST
+HideGhost=HIDE GHOST
+QuitText=EXIT RACE
+
+[TdTutorialPause]
+Title=TRAINING AREA
+RestartText=RESTART
+SkipText=SKIP TRAINING
+
+[TdLevelRacePause]
+RestartRaceText=RESTART RACE
+QuitText=EXIT RACE
+
+[TdLevelRace]
+OnlineTitleText=SPEED RUN ONLINE
+OfflineTitleText=SPEED RUN OFFLINE
+SelectLevel=SELECT CHAPTER
+Title=SPEED RUN
+LevelDesc=DESCRIPTION
+Result=RESULT
+QualifyingTimeText=QUALIFYING TIME:
+
+
+[TdEndOfLevelRace]
+TitleText=RACE STATS
+NewTime=NEW TIME:
+
+
+[TdTimeTrial]
+OfflineTitleText=TIME TRIAL OFFLINE
+OnlineTitleText=TIME TRIAL ONLINE
+AvailableStretchesText=SELECT COURSE
+BestTimesText=BEST TIMES
+StretchTitle=COURSE:
+UnlockText=UNLOCK CRITERIA:
+RaceSelfText=RACE PERSONAL BEST
+RaceWorldText=RACE WORLD'S BEST
+RaceFriendText=RACE FRIENDS' BEST
+RaceLeaderboardEntryText=RACE LEADERBOARD ENTRY
+YourBestTimeText=PERSONAL BEST:
+WorldBestTimeText=WORLD'S BEST:
+BestFriendTimeText=FRIENDS' BEST:
+QualifyingTimeText=GHOST QUALIFYING TIME:
+StartStretchTitleText=SELECT TARGET TIME
+UndefinedTime=--:--:--
+SpeedTextMetric=%Speed% km/h
+SpeedUnitTextMetric=km/h
+SpeedTextImperial=%Speed% mph
+SpeedUnitTextImperial=mph
+DistanceTextMetric=%Distance% m
+DistanceUnitTextMetric=m
+DistanceTextImperial=%Distance% yds
+DistanceUnitTextImperial=yds
+
+
+[TdStartRace]
+PressKeyText=Press <Fonts:TdFrontendResources.TdXBoxSymbols>A<Fonts:/> to start race
+PressAnyKeyText=Press [SPACE] to start race
+TitleText=RACE INFO
+QualifyingTimeText=QUALIFYING TIMES:
+PressStart=PRESS<StringAliasMap:Accept>TO START RACE
+TrackLength=TRACK LENGTH: %METERS%
+TrackInfo=TRACK INFO:
+TargetInfo=TARGET TIME:
+TargetTime=Target time: %TIME%
+TargetName=Target: %NAME%
+
+[TdEndOfRace]
+TitleText=RACE STATS
+AverageSpeedText=AVG SPEED:
+DistanceRunText=DISTANCE:
+TimeText=TIME:
+SkillRatingText=SKILL RATING:
+
+[TdNewRecord]
+TitleText=NEW RECORD
+NewRecordTitle=NEW RECORD!
+WorldWinText=YOU BEAT THE ALL TIME WORLD RECORD!
+WorldMonthlyWinText=YOU BEAT THE MONTH'S WORLD RECORD!
+WorldWeeklyWinText=YOU BEAT THE WEEK'S WORLD RECORD!
+FriendWinText=YOU BEAT YOUR FRIEND'S RECORDS!
+PersonalWinText=YOU BEAT YOUR PERSONAL RECORD!
+TargetWinText=YOU BEAT THE TARGET TIME!
+NoRecord=ERROR ERROR Should not Occur!
+NewRecord=NEW RECORD:
+OldRecord=OLD RECORD:
+WorldRecord=WORLD RECORD:
+FriendRecord=FRIENDS RECORD:
+TargetRecord=TARGET TIME:
+
+[TdStarRating]
+TitleText=NEW SKILL RATING
+NewTrackRating=YOU HAVE %NUM% STARS ON %TRACK%
+NewTrackRatingSingular=YOU HAVE %NUM% STAR ON %TRACK%
+TotalRating=TOTAL SKILL RATING: %NUM%
+UnlockText=YOU HAVE UNLOCKED %TRACK%
+
+[TdSPLeaderboards]
+TimeTrialTitleText=LEADERBOARDS - TIME TRIAL
+LevelRaceTitleText=LEADERBOARDS - SPEED RUN
+StretchTextPC=SELECT COURSE:
+ChapterTextPC=SELECT CHAPTER:
+StretchDesc=TODO: Add stretch filter desc.
+PlayersTextPC=SORT BY:
+PlayersDesc=TODO: Add players filter desc.
+TimeFrameTextPC=SELECT TIME FRAME:
+TimeFrameDesc=TODO: Add time frame filter desc.
+StretchText=<StringAliasMap:BothTrigger><Strings:TdGameUI.TdSPLeaderboards.StretchTextPC>
+ChapterText=<StringAliasMap:BothTrigger><Strings:TdGameUI.TdSPLeaderboards.ChapterTextPC>
+PlayersText=<StringAliasMap:LeftBumper><Strings:TdGameUI.TdSPLeaderboards.PlayersTextPC>
+TimeFrameText=<StringAliasMap:RightBumper><Strings:TdGameUI.TdSPLeaderboards.TimeFrameTextPC>
+NumPlayersText=TOTAL PLAYERS: %NumPlayers%
+GameMode=GAME MODE
+
+[TdOnline]
+EAOnlineText=EA ONLINE
+TOS_TitleText=TERMS & CONDITIONS
+OnlineCheck_TitleText=NOT ONLINE
+OnlineCheck_DescriptionText=To register your results on the leaderboards and race your friends' ghosts you need to be connected to EA online.\n\nYou can choose to race offline, but your times and ghosts will only be stored locally.
+LoginNameText=E-MAIL ADDRESS
+LoginNameDescText=Enter e-mail to be used for your EA account
+PasswordText=PASSWORD
+PasswordDescText=Enter password for your EA account
+ParentalEmailText=PARENTAL E-MAIL ADDRESS
+ParentalEmailDescText=Enter parental e-mail to be used for your EA account
+AccountLogin_TitleText=LOGIN TO EA ACCOUNT
+AccountLogin_DescriptionText=To use online functions you need an EA account. Click CREATE ACCOUNT to create a new account.\n\nDo you have an EA account already? Enter your e-mail address and password to login.
+CreateAccount_TitleText=CREATE EA ACCOUNT
+CreateAccount_DescriptionText=To create an EA Account you can use the e-mail and password below, or change the info if you like.\n\nIf you already have an EA account you can enter that information.\n\nYou’ll need to remember this e-mail and password to access game-specific content on EA web sites.
+CreateAccount_LoginNameText=ENTER E-MAIL ADDRESS
+CreateAccount_PasswordText=CHOOSE A PASSWORD
+CreateAccount_AllowEAMailText=EA may contact you about EA products, news and events.
+CreateAccount_AllowThirdPartyMailText=EA may share your info with selected EA partners.
+CreateAccountPC_DescriptionText=To create a new EA account, please fill in your personal information below.
+CreateAccountPC_VerifyPasswordText=RE-ENTER PASSWORD
+CreateAccountPC_BirthdateText=DATE OF BIRTH (MM - DD - YYYY)
+CreateAccountPC_YearText=YYYY
+CreateAccountPC_MonthText=MM
+CreateAccountPC_DayText=DD
+CreateAccountPC_CountryText=COUNTRY
+CreateAccountConfirm_TitleText=CONFIRM EA ACCOUNT
+CreateAccountConfirm_DescriptionText=The e-mail address and password you just entered are required in order for you to login into the game-specific content on EA web sites.\n\nWould you like to submit this information or go back and change it?
+CreatePersona_TitleText=CHOOSE PLAYER NICKNAME
+CreatePersona_DescriptionText=Choose your online player nickname.
+CreatePersona_PersonaText=PLAYER NICKNAME
+CreatePersona_ExistingPersonasText=EXISTING NICKNAMES
+ParentalEmail_TitleText=PARENTAL E-MAIL
+ParentalEmail_DescriptionText=To create an EA account we need a parental e-mail.\n\nPlease enter parental e-mail.
+OfflinePlayerName=Player
+
+[TpCreateAccount]
+FieldName_country=COUNTRY
+FieldName_dob=DATE OF BIRTH
+FieldName_email=E-MAIL
+FieldName_language=LANGUAGE
+FieldName_parentalEmail=PARENTAL E-MAIL
+FieldName_password=PASSWORD
+FieldName_persona=NICKNAME
+FieldName_displayName=NAME
+FieldName_tosAccepted=ACCEPTED TERMS OF SERVICE
+
+[TdSettings]
+NotBound=""
+PressKeyToBind=(Press Key To Bind)
+
+[TdAudioVideoSettings]
+TitleText=AUDIO/VIDEO
+AudioTitleText=AUDIO
+VideoTitleText=VIDEO
+MinText=MIN
+MaxText=MAX
+BrightnessText=BRIGHTNESS
+BrightnessDesc=Set the brightness in the game
+ContrastText=CONTRAST
+ContrastDesc=Set the contrast in the game
+CalibrationText=Adjust video brightness and contrast by moving the sliders.
+MasterText=MASTER VOLUME
+MasterDesc=Sets the master volume in the game
+MusicText=MUSIC VOLUME
+MusicDesc=Sets the music volume in the game
+DialogueText=DIALOGUE VOLUME
+DialogueDesc=Sets the character dialogue volume in the game
+
+[TdAudioVideoSettingsPC]
+ResolutionText=RESOLUTION
+ResolutionDesc=Change the resolution that the game will be displayed in. Selecting a higher resolution will improve the look of the game but may impact performance.
+VerticalSyncText=VERTICAL SYNC
+VerticalSyncDesc=Lock the frame rate from the graphics card to the refresh rate of the monitor. This can resolve issues with texture tearing but may impact performance.
+TextureDetailText=TEXTURE DETAIL
+TextureDetailDesc=Select the level of texture detail. This will improve the look of the game, by using larger textures, but may impact performance.
+GFXQualityText=GRAPHICS QUALITY
+GFXQualityDesc=Increase the amount of post-processing effects. This will improve the look of the game but may impact performance.
+AudioDeviceText=AUDIO DEVICE
+AudioDeviceDesc=Select the audio device to use. If you have either an on-board sound card or a dedicated sound card use 'Hardware' sound to improve performance.
+AntiAliasingText=ANTI-ALIASING
+AntiAliasingDesc=Toggles anti-aliasing, which produces smoother edges but may impact performance.
+PhysXText=PHYSX SUPPORT
+PhysXDesc=Physics Hardware Acceleration Settings. The game needs to be restarted when changing this setting.
+
+[TdGameSettings]
+TitleText=GAME SETTINGS
+DifficultyText=DIFFICULTY LEVEL
+DifficultyDesc=Sets game difficulty - To unlock hard difficulty - complete the story mode on any other difficulty
+SubtitlesText=SUBTITLES
+SubtitlesDesc=Sets the subtitles on/off
+UnitText=UNIT
+UnitDesc=Sets distance and speed in metric or imperial units
+LOIText=RUNNER-VISION
+LOIDesc=Sets the Runner-Vision on/off or hostiles off. It's always enabled for weapons.
+ReticuleText=RETICLE
+ReticuleDesc=Sets the reticle on/off or weapon only
+
+[TdControllerSettings]
+TitleText=CONTROLS
+InvertAxisText=Y AXIS
+InvertAxisDesc=Changes the right stick directions for looking up or down
+InvertAxisLeftDesc=Changes the left stick directions for looking up or down
+SensitivityText=SENSITIVITY
+SensitivityDesc=Adjust how quickly the controls respond
+VibrationText=VIBRATION
+VibrationDesc=Turn controller vibration on/off
+SixAxisText=MOTION SENSOR FUNCTION
+SixAxisDesc=Turn the Motion Sensor Function on or off
+KeyMappingText=CONTROLS
+KeyMappingDesc=Adjust mouse & keyboard settings
+KeyMappingTab0=MOVEMENT
+KeyMappingTab1=ACTIONS
+BindCommandText=COMMAND:
+BindKey1Text=KEY 1:
+BindKey2Text=KEY 2:
+UnboundActionText=There are one or more unbound game actions. In order to save your mappings all game actions need to be bound to a valid key.
+ControllerConfText=GAMEPAD SETUP
+ControllerConfDesc=Change button mapping
+LBLabelText=MOVEMENT ACTION
+LTLabelText=CROUCH/SLIDE
+RBLabelText=MELEE/SNATCH/KICK
+RTLabelText=SHOOT/BARGE
+StartButtonLabelText=PAUSE
+YButtonLabelText=SWITCH/THROW AWAY/PICK UP WEAPON
+XButtonLabelText=RELOAD
+BButtonLabelText=REACTION TIME
+AButtonLabelText=INTERACT
+LeftAnalogStickLabelText=MOVE
+RightAnalogStickLabelText=LOOK AROUND/AIM
+DPadLabelText=
+
+[TdControllerSettingsPC]
+SensitivityText=MOUSE SENSITIVITY
+SensitivityDesc=Increase/decrease mouse sensitivity
+InvertAxisText=INVERT MOUSE
+InvertAxisDesc=Change the direction for looking up and down
+
+[TdGameObjectives]
+CurrentObjectiveTitleText=CURRENT OBJECTIVE
+FinishedObjectivesTitleText=COMPLETED OBJECTIVES
+GamePausedText=GAME PAUSED
+TitleText=OBJECTIVES
+BagStatusText=%NumBagsGathered%/%MaxNumBags% (TOTAL %TotNumBagsGathered%/%TotNumBags%)
+TimeStatusText=%TimeOnLevel% (TOTAL %TotalTime%)
+NoObjectivesText=YOU HAVE NO COMPLETED OBJECTIVES
+HasGivenBulletDamageText=
+HasNotGivenBulletDamageText=So far, you have not fired a shot at anyone
+
+[TdFriends]
+FriendsListTitle=FRIENDS
+FriendsListDesc=This is your player list, where you can add friends you want to keep track of. You can filter the leaderboards by your friends and compare your race results to the best among your friends.
+
+NoFriendsText=YOUR FRIENDS LIST IS EMPTY
+
+AddFriendTitle=ADD FRIEND
+AddFriendDesc=Enter the online ID of the player you want to add to your player list.
+TargetPlayerText=PLAYER NAME:
+
+[TdMiniMenu]
+NewMessage=SEND MESSAGE
+ViewMessage=VIEW MESSAGE
+DeleteMessage=DELETE MESSAGE
+ReplyMessage=REPLY TO MESSAGE
+BlockMessage=BLOCK SENDER
+
+RemoveFriend=REMOVE FRIEND
+
+[TpErrors]
+Bad_Date=Date is invalid
+Bad_Version_Title=Incorrect version of the game
+Bad_Version_EADM=You need to upgrade the game to play online. Do you want to upgrade to the latest version now?
+Bad_Version_NoEADM=You need to upgrade the game to play online. You can easily upgrade your game by installing EA Download Manager.
+Confirm_Message_Title=MESSAGE
+Error_-100=The connection to EA Online is unavailable. Please try again later.
+Error_-102=The connection to EA Online is unavailable. Please try again later.
+Error_-103=The connection to EA Online is unavailable. Please try again later.
+Error_-104=The connection to EA Online is unavailable. Please try again later.
+Error_-105=The connection to EA Online is unavailable. Please try again later.
+Error_-109=The connection to EA Online is unavailable. Please try again later.
+Error_-110=The connection to EA Online is unavailable. Please try again later.
+Error_-111=The connection to EA Online is unavailable. Please try again later.
+Error_-112=The connection to EA Online is unavailable. Please try again later.
+Error_-113=The connection to EA Online is unavailable. Please try again later.
+Error_-114=The connection to EA Online is unavailable. Please try again later.
+Error_-115=The connection to EA Online is unavailable. Please try again later.
+Error_-165=Thank you for your interest. We're sorry, but you are not old enough to access EA's online features.
+Error_-201=The Mirror's Edge server is not available at this time. Please try again later.
+Error_-202=Could not create a socket for communicating with the backend server
+Error_-203=Unable to connect to EA Online. Please check your network connection and try again.
+Error_-204=Multiple logins detected.
+Error_-205=The connection to EA Online server has been lost.
+Error_-206=Connection to EA online timed out.
+Error_-207=Internal failure
+Error_-208=Banned from server
+Error_-213=Internal failure when initializing online subsystem
+Error_-214=Internal failure when initializing online subsystem
+Error_-220=Login failed
+Error_-221_Xbox=Your gamer profile does not have the correct permissions to access Xbox LIVE functionality.
+Error_-221_Ps3=Online service is disabled on your PLAYSTATION®Network account due to parental control restrictions.
+Error_-221_Pc=You have no permissions to access EA Online functionality.
+Error_-230=Failed to ping a minimum number of sites
+Error_-250=The connection to Xbox LIVE has been lost.
+Error_-252=You need to be signed into Xbox LIVE to access Xbox LIVE features
+Error_-253=The Xbox Live service is busy.
+Error_-254=You must install an Xbox Live update before playing online.
+Error_-260=The PLAYSTATION®Network service is unavailable.
+Error_-262=A network connection could not be found.
+Error_-263=You must be signed in to the PLAYSTATION®Network in order to access the Online features of this Title.
+Error_20=User is not authenticated
+Error_21=Please ensure you have entered your e-mail and password correctly or sign up for a new EA Online account if you have not already done so.
+Error_21_Persona=Try another nickname.
+Error_26=Server is busy
+Error_99=Internal server error
+Error_100=Failed to authenticate user
+Error_101=Please ensure you have entered your e-mail and password correctly or sign up for a new EA Online account if you have not already done so.
+Error_102=The account is disabled
+Error_103=User is banned
+Error_104=Data is missing when trying to login
+Error_105=The account is pending
+Error_107=You need to fill in more information
+Error_108=The account is waiting for Parent's approval
+Error_120=The account is not entitled to play online
+Error_121=Too many login attempts with an invalid password
+Error_122=Please ensure you have entered your e-mail and password correctly or sign up for a new EA Online account if you have not already done so.
+Error_123=You have not registered this game
+Error_140=You have recovered the password too many times
+Error_141=This user has recovered the account name too many times
+Error_142=The specified e-mail address isn't in the database
+Error_143=No password was found for the specified account
+Error_160=E-mail already in use
+Error_160_Persona=Nickname already in use
+Error_161=E-mail is blocked
+Error_162=The password was not changed
+Error_163=Too many nicknames connected to account
+Error_164=Nickname disabled by CSR
+Error_180=The specified code has already been used by another account
+Error_181=The specified code is invalid
+Error_182=This account has already registered this game.
+Error_183=The account could not be authenticated with the provided information
+Error_191=The country does not support your credit card
+Error_192=The Mirror's Edge server is not available at this time. Please try again later.
+Error_193=Failed to use the PLAYSTATION®Network service
+Error_197=Internal failure
+Error_221=Internal failure
+Error_222=Internal failure
+Error_223=Internal failure, too many results found
+Error_226=Internal failure
+Error_227=Internal failure
+Error_250=Account deactivated
+Error_251=The account was merged into a second account, so you should use the other account
+Error_260=The terms of service agreement is out of date
+Error_4001=Session lost
+Error_4002=Internal failure
+Error_4003=Internal failure
+Error_4004=Internal failure
+Error_4005=Internal failure
+Error_4006=Internal failure
+Error_22000=Internal message service failure
+Error_22001=Recipient not found
+Error_22002=Internal message service failure
+Error_22003=Internal message service failure
+Error_22004=Internal message service failure
+Error_22005=Internal message service failure
+Error_22006=Invalid recipient
+Error_22007=Internal message service failure
+Error_22008=Could not find the message
+Failed_Create_Account_Title=COULD NOT CREATE ACCOUNT
+Failed_Create_Persona_Title=COULD NOT CREATE NICKNAME
+Failed_Login_Account_Title=COULD NOT LOGIN TO EA ACCOUNT
+Failed_Login_Persona_Title=COULD NOT LOGIN
+Failed_Connect_Title=COULD NOT CONNECT
+Failed_Connect_Body=Could not connect to EA Online. Please check your internet connection.
+FieldError_0=%FieldName% has invalid characters
+FieldError_2=%FieldName% is too short
+FieldError_3=%FieldName% is too long
+FieldError_4=%FieldName% must begin with a letter
+FieldError_5=%FieldName% is missing
+FieldError_6=%FieldName% is invalid
+FieldError_7=%FieldName% not allowed
+FieldError_8=%FieldName% needs special characters
+FieldError_12=%FieldName% already exists
+LOCKERAPI_ERROR_SERVER=Please try again later.
+LOCKERAPI_ERROR_LKEYINVALID=Please try again later.
+LOCKERAPI_ERROR_FILEEXISTS=Upload failed.
+LOCKERAPI_ERROR_TOOMANYFILES=Upload failed.
+LOCKERAPI_ERROR_TOOMANYBYTES=Upload failed.
+LOCKERAPI_ERROR_NAMEPROFANE=Upload failed.
+LOCKERAPI_ERROR_FILEMISSING=Failed to download ghost. Ghost data is corrupted.
+LOCKERAPI_ERROR_NOPERMISSION=Failed to download ghost. Ghost data is corrupted.
+LOCKERAPI_ERROR_UNKNOWNOWNER=Failed to download ghost. Ghost data is corrupted.
+LOCKERAPI_ERROR_TIMEOUT=Please try again later.
+GhostFailStatsNotUploaded=Stats will not be uploaded.
+GhostFailStatsNotSaved=Stats will not be saved.
+Password_Not_Equal=Password field does not match verify password field
+UnknownError=Unknown error
+
+[Errors]
+Critical_Error=Connection lost
+Return_To_Menu=You are being returned to the main menu.
+Ps3_Connection_Lost=Connection to server was lost. Please check your network connection and try again later.
+
+[TdButtonFont]
+Xenon_A=<Styles:TdButtonBarButtonXbox> A <Styles:/>
+Xenon_B=<Styles:TdButtonBarButtonXbox> B <Styles:/>
+Xenon_X=<Styles:TdButtonBarButtonXbox> X <Styles:/>
+Xenon_Y=<Styles:TdButtonBarButtonXbox> Y <Styles:/>
+Xenon_RightStickButton=<Styles:TdButtonBarButtonXbox> 6 <Styles:/>
+Xenon_Start=<Styles:TdButtonBarButtonXbox> 5 <Styles:/>
+Xenon_Back=<Styles:TdButtonBarButtonXbox> 4 <Styles:/>
+Xenon_LeftBumper=<Styles:TdButtonBarButtonXbox> 0 <Styles:/>
+Xenon_RightBumper=<Styles:TdButtonBarButtonXbox> 1 <Styles:/>
+Xenon_LeftTrigger=<Styles:TdButtonBarButtonXbox> 2 <Styles:/>
+Xenon_RightTrigger=<Styles:TdButtonBarButtonXbox> 3 <Styles:/>
+Xenon_LeftStick=<Styles:TdButtonBarButtonXbox> L <Styles:/>
+Xenon_RightStick=<Styles:TdButtonBarButtonXbox> R <Styles:/>
+Xenon_HorizontalStick=<Styles:TdButtonBarButtonXbox> H <Styles:/>
+Xenon_VerticalStick=<Styles:TdButtonBarButtonXbox> V <Styles:/>
+Xenon_BothTrigger=<Styles:TdButtonBarButtonXbox> 23 <Styles:/>
+PS3_A=<Styles:TdButtonBarButtonPS3> A <Styles:/>
+PS3_B=<Styles:TdButtonBarButtonPS3> B <Styles:/>
+PS3_X=<Styles:TdButtonBarButtonPS3> X <Styles:/>
+PS3_Y=<Styles:TdButtonBarButtonPS3> Y <Styles:/>
+PS3_RightStickButton=<Styles:TdButtonBarButtonPS3> 6 <Styles:/>
+PS3_Start=<Styles:TdButtonBarButtonPS3> 5 <Styles:/>
+PS3_Back=<Styles:TdButtonBarButtonPS3> 4 <Styles:/>
+PS3_LeftBumper=<Styles:TdButtonBarButtonPS3> 0 <Styles:/>
+PS3_RightBumper=<Styles:TdButtonBarButtonPS3> 1 <Styles:/>
+PS3_LeftTrigger=<Styles:TdButtonBarButtonPS3> 2 <Styles:/>
+PS3_RightTrigger=<Styles:TdButtonBarButtonPS3> 3 <Styles:/>
+PS3_LeftStick=<Styles:TdButtonBarButtonPS3> L <Styles:/>
+PS3_RightStick=<Styles:TdButtonBarButtonPS3> R <Styles:/>
+PS3_HorizontalStick=<Styles:TdButtonBarButtonPS3> H <Styles:/>
+PS3_VerticalStick=<Styles:TdButtonBarButtonPS3> V <Styles:/>
+PS3_BothTrigger=<Styles:TdButtonBarButtonPS3> 23 <Styles:/>
+PS3_SA_Disarm=<Styles:TdButtonBarButtonPS3Special> D <Styles:/>
+PS3_SA_BalanceWalk=<Styles:TdButtonBarButtonPS3Special> W <Styles:/>
+PS3_SA_SkillRoll=<Styles:TdButtonBarButtonPS3Special> S <Styles:/>
+PC_Button=
+PC_2Buttons=
+
+[TdSymbols]
+Unlocked=<Fonts:UI_Fonts_Final.Symbols>A<Fonts:/>
+Locked=<Fonts:UI_Fonts_Final.Symbols>B<Fonts:/>
+Check=<Styles:TdLabelText_Symbols><Color:R=1,G=0,B=0,A=1> C <Color:/><Styles:/>
+Plus=<Styles:TdLabelText_Symbols><Color:R=1,G=0,B=0,A=1> D <Color:/><Styles:/>
+Star_3=<Fonts:UI_Fonts_Final.Symbols>EEE<Fonts:/>
+Star_2=<Fonts:UI_Fonts_Final.Symbols>EE<Fonts:/>
+Star=<Fonts:UI_Fonts_Final.Symbols>E<Fonts:/>
+RightArrow=<Styles:TdLabelText_Symbols><Color:R=0,G=0,B=0,A=1> F <Color:/><Styles:/>
+LeftArrow=<Styles:TdLabelText_Symbols><Color:R=0,G=0,B=0,A=1> G <Color:/><Styles:/>
+Ghost=<Fonts:UI_Fonts_Final.Symbols>H<Fonts:/>
+
+[TdButtonCallouts]
+Ok=<StringAliasMap:Accept>OK
+Accept=<StringAliasMap:Accept>SELECT
+Ignore=<StringAliasMap:Cancel>IGNORE
+Continue=<StringAliasMap:Accept>CONTINUE
+Back=<StringAliasMap:Cancel>BACK
+Cancel=<StringAliasMap:Cancel>CANCEL
+PlayerMenu=<StringAliasMap:Cancel>PLAYER OPTIONS
+AddMapToCycle=<StringAliasMap:Conditional1>ADD MAP
+RemoveMapFromCycle=<StringAliasMap:Conditional1>REMOVE MAP
+ClearCycle=<StringAliasMap:Conditional2>CLEAR CYCLE
+ResetToDefaults=<StringAliasMap:Conditional1>DEFAULTS
+Close=<StringAliasMap:Cancel>CLOSE
+RaceFriends=<StringAliasMap:Conditional1>RACE FRIENDS
+RaceWorlds=<StringAliasMap:Conditional2>RACE TOP RANKED
+RacePersonal=<StringAliasMap:Accept>RACE
+Friends=<StringAliasMap:Conditional2>FRIENDS
+ViewLevelRace=<StringAliasMap:Conditional1>VIEW SPEED RUN
+ViewTimeTrial=<StringAliasMap:Conditional1>VIEW TIME TRIAL
+Quit=<StringAliasMap:Conditional1>QUIT GAME
+Retry=<StringAliasMap:Conditional2>RETRY
+RetryAButton=<StringAliasMap:Accept>RETRY
+Overwrite=<StringAliasMap:Conditional2>OVERWRITE
+
+RestartChallenge=<StringAliasMap:Accept>RESTART CHALLENGE
+SelectChallenge=<StringAliasMap:Accept>SELECT CHALLENGE
+
+PlayerOptions=<StringAliasMap:Accept>PLAYER OPTIONS
+MessageOptions=<StringAliasMap:Accept>MESSAGE OPTIONS
+
+;SendMessageAccept=<StringAliasMap:Accept>SEND MESSAGE
+;SendMessageFriendRequest=<StringAliasMap:Accept>SEND FRIEND REQUEST
+;SendMessageConditional=<StringAliasMap:Conditional2>SEND MESSAGE
+
+AddFriend=<StringAliasMap:Conditional2>ADD FRIEND
+AddFriendAccept=<StringAliasMap:Accept>ADD FRIEND
+ViewMessage=<StringAliasMap:Accept>VIEW MESSAGE
+ReplyMessage=<StringAliasMap:Accept>REPLY
+DeleteMessage=<StringAliasMap:Conditional1>DELETE MESSAGE
+DeclineAddFriend=<StringAliasMap:Conditional1>DECLINE
+RemoveFriend=<StringAliasMap:Conditional1>REMOVE FRIEND
+
+Race=<StringAliasMap:Accept>START RACE
+Tutorial=<StringAliasMap:Conditional1>START WALKTHROUGH
+TimeTrialRaceMenu=<StringAliasMap:Accept>SELECT
+RestartRace=<StringAliasMap:Accept>TRY AGAIN
+ViewGhosts=<StringAliasMap:Conditional1>VIEW GHOSTS
+GamerCardXbox=<StringAliasMap:Conditional2>GAMER CARD
+GamerCardPs3=<StringAliasMap:Conditional2>PROFILE
+Submit=<StringAliasMap:Accept>SUBMIT
+Edit=<StringAliasMap:Conditional1>EDIT
+PlayOffline=<StringAliasMap:Accept>PLAY OFFLINE
+CreateAccount=<StringAliasMap:Conditional2>CREATE ACCOUNT
+Login=<StringAliasMap:Accept>LOGIN
+SaveSettings=<StringAliasMap:Accept>SAVE SETTINGS
+QuitToMenu=<StringAliasMap:Cancel>QUIT TO MAIN MENU
+ExitRace=<StringAliasMap:Cancel>EXIT RACE
+Controller=<StringAliasMap:Conditional2>CONTROLLER
+AcceptTOS=<StringAliasMap:Accept>ACCEPT
+DeclineTOS=<StringAliasMap:Cancel>DECLINE
+KeyMappings=<StringAliasMap:Start>KEY MAPPINGS
+ViewImage=<StringAliasMap:Accept>VIEW IMAGE
+PlayMovie=<StringAliasMap:Accept>PLAY VIDEO
+PlayMusic=<StringAliasMap:Accept>PLAY MUSIC
+RestartTutorial=<StringAliasMap:Cancel>STAY HERE
+PlayStoryMode=<StringAliasMap:Accept>PLAY GAME
+PlayMainMenu=<StringAliasMap:Accept>CONTINUE TO MAIN MENU
+HintButton=<StringAliasBindings:GBA_LookAt>HINT
+RTButton=<StringAliasBindings:GBA_ReactionTime>REACTION TIME
+ObjectivesButton=<StringAliasBindings:GBA_InGameMenu>OBJECTIVES
+UpButton=<StringAliasBindings:GBA_Jump>UP
+DownButton=<StringAliasBindings:GBA_Crouch>DOWN
+
+XenonSelectDevice=<StringAliasMap:Accept>SELECT DEVICE
+ContinueWithoutSaving=<StringAliasMap:Cancel>CONTINUE WITHOUT SAVING
+ContinueWithoutSavingDeviceRemoved=<StringAliasMap:Accept>CONTINUE WITHOUT SAVING
+QuitToMenuDeviceRemoved=<StringAliasMap:Conditional2>QUIT TO TITLE SCREEN
+
+FinalCreditsQuit=<StringAliasMap:Start>QUIT TO MAIN MENU
+CreditsQuit=<StringAliasMap:Start>MAIN MENU
+
+RestartGame=<StringAliasMap:Accept>RESTART GAME
+
+[TdMessageBox]
+NeedOneMap_Title=Empty map cycle
+NeedOneMap_Message=At least one map must appear in your map cycle.
+WillNotSave_Title=CANCEL CHANGES
+WillNotSave_Message=The changes you made will not be saved. Do you want to continue without saving changes?
+RemoveFriend_Title=REMOVE FRIEND
+RemoveFriend_Message=Are you sure you want to remove '%PlayerName%'?
+InvalidPlayerName_Title=INVALID NICKNAME
+InvalidPlayerName_Message=Invalid nickname
+FriendRequestSent_Title=FRIEND ADDED
+FriendRequestSent_Message=Friend added to your player list.
+FriendRequestFailed_Title=FAILED TO ADD FRIEND
+FriendRequestFailed_Message=This online ID does not seem to exist.
+MessageToYourself_Title=CAN'T SEND TO YOURSELF
+MessageToYourself_Message=Can't send to yourself
+MessageSent_Title=MESSAGE SENT
+MessageSent_Message=Message sent
+SendMessageFailed_Title=FAILED TO SEND MESSAGE
+ViewMessage_Title=Message from '%PlayerName%'
+DeleteMessage_Title=DELETE MESSAGE?
+DeleteMessage_Message=Do you want to delete message from '%PlayerName%'
+StompBindKey_Title=KEY ALREADY BOUND
+StompBindKey_Message=The key you are trying to bind is already assigned to another action. Do you want to rebind the key?
+ResetWarning_Title=RESET TO DEFAULTS
+ResetWarning_Message=Are you sure you want to reset the settings to defaults?
+ResetWarning_MessageProRunnerXbox=Are you sure you want to reset the settings to defaults? This will make you lose opportunity to get Pro Runner achievement in the current game progress.
+ResetWarning_MessageProRunnerPS3=Are you sure you want to reset the settings to defaults? This will make you lose opportunity to get Pro Runner trophy in the current game progress.
+RestartRaceWarning_Title=RESTART RACE
+RestartRaceWarning_Message=Are you sure you want to restart the race. Any unsaved progress will be lost?
+QuitToMenu_Title=QUIT TO MAIN MENU
+QuitToMenu_Message=Are you sure you want to quit? Any unsaved progress will be lost.
+SkipTutorial_Title=SKIP TRAINING
+SkipTutorial_Message=Are you sure you want to skip the training? You may miss out on important hints.
+LoadLastCheckpoint_Title=LOAD LAST CHECKPOINT
+LoadLastCheckpoint_Message=Are you sure you want to load the last checkpoint? Any unsaved progress will be lost.
+TimeTrialLoadDataFailed_Title=COULD NOT LOAD TIMES
+TimeTrialLoadDataFailed_Message=The Mirror's Edge server is not available at this time. Please try again later.
+TimeTrialLoadGhostFailed_Title=COULD NOT LOAD GHOST
+TimeTrialLoadGhostFailed_Message=Could not load ghost data. The race will be run without a ghost.
+TimeTrialLoadGhostInconsistentTime_Message=Could not load ghost data. The race will be run without a ghost.
+TimeTrialLoadGhostIncompatibleVersion_Message=Could not load ghost data. The race will be run without a ghost.
+TimeTrialSaveDataFailed_Title=COULD NOT SAVE TIMES
+TimeTrialSaveDataFailed_Message=Failed to save times.
+TimeTrialSaveGhostFailed_Title=COULD NOT SAVE GHOST
+TimeTrialSaveGhostFailed_Message=Failed to save ghost.
+RebootReasonSigninChangeTitle=A SIGN-IN CHANGE OCCURED
+RebootReasonSigninChangeMessage=You are now being returned to the title screen
+PersonaCreatedTitle=NICKNAME CREATED
+PersonaCreatedMessage=Your nickname was created successfully
+NewGameWarningTitle=WARNING
+NewGameWarningMessage=You have a saved game in progress. If you start a new game all saved progress will be lost. Do you want to continue?
+TutorialCompleted=You have completed the training. What do you want to do?
+FailedToWriteProfile_Title=WARNING
+FailedToWriteProfileProgress_Message=Failed to save game progress.
+FailedToWriteProfileOptions_Message=Failed to save options.
+StorageDeviceCorrupt_Message=Your storage device has been removed during gameplay. You can continue without saving or quit to title screen and reselect storage device.
+LoadingGamerCard_Title=Loading
+LoadingGamerCard_MessageXbox=Loading gamer card
+LoadingGamerCard_MessagePs3=Loading profile
+LoadingGamerCardError_Title=FAILURE
+LoadingGamerCardError_MessageXbox=Failed to show gamer card
+LoadingGamerCardError_MessagePs3=Failed to show profile
+ProRunnerWarning_Title=WARNING
+ProRunnerWarning_MessageXbox=If you change game difficulty from hard to an easier difficulty you will lose opportunity to get Pro Runner achievement in the current game progress. Do you want to save these changes?
+ProRunnerWarning_MessagePs3=If you change game difficulty from hard to an easier difficulty you will lose opportunity to get Pro Runner trophy in the current game progress. Do you want to save these changes?
+LockedStretch_Title=LOCKED STRETCH
+LockedStretch_Message=This stretch is locked. Look at the time trial screen for unlocking criteria.
+QuitConfirm_Title=QUIT
+QuitConfirm_Message=Are you sure you want to quit the game?
+PhysXChange_Title=GAME RESTART
+PhysXChange_Message=For the Physics Hardware Acceleration Support settings to take effect, the game will have to be restarted.
+PhysXChangeNotSupported_Title=SETTING NOT SUPPORTED
+PhysXChangeNotSupported_Message=Your graphics card does not support Physics Hardware Acceleration, enabling this setting may cause your game to run slowly. If you still want to enable this setting, the game will have to be restarted.
+
+[TdModalConnectingMessageBox]
+TitleText=CONNECTING
+DescriptionText=Connecting
+
+[TdModalSaveInfoMessageBox]
+SaveInfoTitle=AUTOSAVE
+SaveInfoBody=This game saves data automatically at certain points. Do not switch off your system while this icon is onscreen.
+SaveInfoBodyXbox=This game saves data automatically at certain points. Do not switch off your Xbox 360 console while this icon is onscreen. Please choose device to store your game progress on.
+
+[TdModalSaveLoadMessageBox]
+LoadTitleTextOnline=DOWNLOADING RACE INFO
+SaveTitleTextOnline=UPLOADING RACE RESULTS
+
+[TdGameMappedStrings]
+GMS_MouseX=MOUSE X
+GMS_MouseY=MOUSE Y
+GMS_MouseScrollUp=SCROLL UP
+GMS_MouseScrollDown=SCROLL DOWN
+GMS_LeftMouseButton=MOUSE 1
+GMS_RightMouseButton=MOUSE 2
+GMS_MiddleMouseButton=MOUSE 3
+GMS_ThumbMouseButton=MOUSE 4
+GMS_BackSpace=BACKSPACE
+GMS_Tab=TAB
+GMS_Enter=ENTER
+GMS_Pause=PAUSE
+GMS_CapsLock=CAPS LOCK
+GMS_Escape=ESCAPE
+GMS_SpaceBar=SPACE
+GMS_PageUp=PAGE UP
+GMS_PageDown=PAGE DOWN
+GMS_End=END
+GMS_Home=HOME
+GMS_Left=LEFT
+GMS_Up=UP
+GMS_Right=RIGHT
+GMS_Down=DOWN
+GMS_Insert=INSERT
+GMS_Delete=DELETE
+GMS_Zero=0
+GMS_One=1
+GMS_Two=2
+GMS_Three=3
+GMS_Four=4
+GMS_Five=5
+GMS_Six=6
+GMS_Seven=7
+GMS_Eight=8
+GMS_Nine=9
+GMS_A=A
+GMS_B=B
+GMS_C=C
+GMS_D=D
+GMS_E=E
+GMS_F=F
+GMS_G=G
+GMS_H=H
+GMS_I=I
+GMS_J=J
+GMS_K=K
+GMS_L=L
+GMS_M=M
+GMS_N=N
+GMS_O=O
+GMS_P=P
+GMS_Q=Q
+GMS_R=R
+GMS_S=S
+GMS_T=T
+GMS_U=U
+GMS_V=V
+GMS_W=W
+GMS_X=X
+GMS_Y=Y
+GMS_Z=Z
+GMS_NumPadZero=NUMPAD 0
+GMS_NumPadOne=NUMPAD 1
+GMS_NumPadTwo=NUMPAD 2
+GMS_NumPadThree=NUMPAD 3
+GMS_NumPadFour=NUMPAD 4
+GMS_NumPadFive=NUMPAD 5
+GMS_NumPadSix=NUMPAD 6
+GMS_NumPadSeven=NUMPAD 7
+GMS_NumPadEight=NUMPAD 8
+GMS_NumPadNine=NUMPAD 9
+GMS_Multiply=*
+GMS_Add=+
+GMS_Subtract=-
+GMS_Minus=-
+GMS_Plus=+
+GMS_Decimal=.
+GMS_Divide=/
+GMS_F1=F1
+GMS_F2=F2
+GMS_F3=F3
+GMS_F4=F4
+GMS_F5=F5
+GMS_F6=F6
+GMS_F7=F7
+GMS_F8=F8
+GMS_F9=F9
+GMS_F10=F10
+GMS_F11=F11
+GMS_F12=F12
+GMS_NumLock=NUM LOCK
+GMS_ScrollLock=SCROLL LOCK
+GMS_LeftShift=LEFT SHIFT
+GMS_RightShift=RIGHT SHIFT
+GMS_LeftControl=LEFT CTRL
+GMS_RightControl=RIGHT CTRL
+GMS_LeftAlt=LEFT ALT
+GMS_RightAlt=RIGHT ALT
+GMS_Semicolon=;
+GMS_Equals==
+GMS_Comma=,
+GMS_Underscore=_
+GMS_Period=.
+GMS_Slash=/
+GMS_Tilde=~
+GMS_LeftBracket=[
+GMS_Backslash=\
+GMS_RightBracket=]
+GMS_Quote="""
+GMS_XBoxTypeS_A=JOY BUTTON 1
+GMS_XBoxTypeS_B=JOY BUTTON 2
+GMS_XBoxTypeS_X=JOY BUTTON 3
+GMS_XBoxTypeS_Y=JOY BUTTON 4
+GMS_XBoxTypeS_Start=JOY START
+GMS_XBoxTypeS_Back=JOY BACK
+GMS_XBoxTypeS_LeftShoulder=JOY L. SHOULDER
+GMS_XBoxTypeS_RightShoulder=JOY R. SHOULDER
+GMS_XBoxTypeS_LeftTrigger=JOY L. TRIGGER
+GMS_XBoxTypeS_RightTrigger=JOY R. TRIGGER
+GMS_XBoxTypeS_DPad_Up=JOY DPad UP
+GMS_XBoxTypeS_DPad_Down=JOY DPad DOWN
+GMS_XBoxTypeS_DPad_Left=JOY DPad LEFT
+GMS_XBoxTypeS_DPad_Right=JOY DPad RIGHT
+GMS_XBoxTypeS_LeftThumbstick=JOY L. STICK
+GMS_XBoxTypeS_RightThumbstick=JOY R. STICK
+GMS_XboxTypeS_LeftX=JOY L. STICK
+GMS_XboxTypeS_LeftY=JOY L. STICK
+GMS_XboxTypeS_RightX=JOY R. STICK
+GMS_XboxTypeS_RightY=JOY R. STICK
+
+[TdTutorialMessages]
+Welcome=Welcome to the Mirror's Edge training area - here you will learn the basics of playing
+ButtonTestJump=<StringAliasBindings:GBA_Jump> is for upwards movement such as jumping. Try to jump
+ButtonTestCrouch=<StringAliasBindings:GBA_Crouch> is for downwards movement such as crouching. Try to crouch
+ButtonTestObj=<StringAliasBindings:GBA_InGameMenu> will open the objectives screen, containing your training challenges. Open the objectives screen
+Welcome2=Momentum is very important in Mirror's Edge. You build momentum by running and by performing certain moves. It affects almost all of your actions in some way - for example how far you jump and slide
+LOI=Your Runner Vision will pick out interesting objects in the environment and color them red. Follow the red objects
+
+FirstJump=<StringAliasBindings:GBA_Jump> to jump over the gap ahead
+Slide=<StringAliasBindings:GBA_Crouch> (hold) while running to slide under the red vent
+LookAt=<StringAliasBindings:GBA_LookAt> (hold) will look at your goal. Celeste is calling you over; get to her
+AfterSpeedVault=Follow Celeste
+
+VaultOver=<StringAliasBindings:GBA_Jump> to vault over fences
+Wallrun=<StringAliasBindings:GBA_Jump> while running towards a wall to wallrun
+SpeedVault=<StringAliasBindings:GBA_Jump> when close to low obstacles performs a speed vault. This move builds momentum
+Barge=<StringAliasBindings:GBA_Fire> gets you through red doors
+
+Balance=%SixAxis_BalanceWalk%<StringAliasBindings:GBA_StrafeLeft><StringAliasBindings:GBA_StrafeRight><StringAliasBindings:GBA_Strafe> to keep your balance on the beam
+WallClimb=<StringAliasBindings:GBA_Jump> to scale walls (wallclimb)
+
+Swing=<StringAliasBindings:GBA_Jump> to jump to the red crossbar, automatically grab it and start swinging
+SwingHint=<StringAliasBindings:GBA_Jump> to jump from the swing to the red pipe ahead. Use <StringAliasBindings:GBA_MoveForward><StringAliasBindings:GBA_StrafeLeft><StringAliasBindings:GBA_StrafeRight><StringAliasBindings:GBA_Backward><StringAliasBindings:GBA_Strafe> to control your movement on the swing and <StringAliasBindings:GBA_LookBehind> to turn around
+ClimbOne=<StringAliasBindings:GBA_TurnLeft><StringAliasBindings:GBA_TurnRight><StringAliasBindings:GBA_LookUp><StringAliasBindings:GBA_LookDown><StringAliasBindings:GBA_Look_Gamepad><StringAliasBindings:GBA_Look_MouseX><StringAliasBindings:GBA_Look_MouseY> to look around while on the pipe. Look at the pipe to the left and use <StringAliasBindings:GBA_Jump> to jump
+ClimbTwo=<StringAliasBindings:GBA_StrafeLeft><StringAliasBindings:GBA_StrafeRight><StringAliasBindings:GBA_Strafe> in combination with <StringAliasBindings:GBA_Jump> can also be used to jump left and right between pipes
+Shimmy=<StringAliasBindings:GBA_Jump> to wallclimb to the ledge above
+PreShimmy=<StringAliasBindings:GBA_StrafeLeft><StringAliasBindings:GBA_StrafeRight><StringAliasBindings:GBA_Strafe> (hold) to shimmy left or right. The fence here prevents you from getting up. Look around the corner to the left for a way up
+ClimbUp=<StringAliasBindings:GBA_Jump> to get up
+
+VJumpGrab=<StringAliasBindings:GBA_Jump>, <StringAliasBindings:GBA_LookBehind>, <StringAliasBindings:GBA_Jump> as three quick presses will get you up here. Wallrun, turn, jump is a very useful combination of moves
+JumpToGrab=<StringAliasBindings:GBA_Jump> to wallclimb to the rooftop above
+LedgeWalk=<StringAliasBindings:GBA_StrafeLeft><StringAliasBindings:GBA_StrafeRight><StringAliasBindings:GBA_Strafe> will control your movement when walking a ledge. Carefully walk out on the ledge ahead
+
+ZipLine=<StringAliasBindings:GBA_Jump> to jump to the zipline and automatically grab it
+SoftLanding=<StringAliasBindings:GBA_Crouch> to dismount from things like this zipline. Try to land on the soft red object below - it will break your fall
+
+CoilJump=<StringAliasBindings:GBA_Crouch> (hold) to coil up and make yourself smaller in the air. Jump (<StringAliasBindings:GBA_Jump>) and coil over the barbed wire ahead
+RollLanding=%SixAxis_SkillRoll%<StringAliasBindings:GBA_Crouch> (hold) to skill roll when close to the ground after a high fall. This will smoothen out the landing
+SpringBoard=<StringAliasBindings:GBA_Jump> to use objects stacked like this as springboards for high jumps. Aim for the ladder ahead and springboard up to it
+FinalJump=<StringAliasBindings:GBA_Jump> to jump up to the rooftop ahead
+
+MeleeAttack=<StringAliasBindings:GBA_Fire> to punch. This is your basic attack. Try to hit Celeste's hands
+LowMeleeAttack=<StringAliasBindings:GBA_Crouch> (hold), <StringAliasBindings:GBA_Fire> to do a low punch
+JumpKickAttack=<StringAliasBindings:GBA_Jump>, <StringAliasBindings:GBA_Fire> to jump kick. Damage from this attack depends on your momentum
+SlideKickAttack=<StringAliasBindings:GBA_Crouch> (hold), <StringAliasBindings:GBA_Fire> while running to slide kick. Slide kicks are effective for ducking under hostile attacks and connecting with a powerful stun
+
+RearDisarm=%SixAxis_Disarm%<StringAliasBindings:GBA_SwitchWeapon> to disarm hostiles from the back
+DiscardWeapon=<StringAliasBindings:GBA_SwitchWeapon> will also drop or pick up a weapon. To fire, use <StringAliasBindings:GBA_Fire> - but don't hit Celeste! Drop the weapon
+FrontDisarm=%SixAxis_Disarm%<StringAliasBindings:GBA_SwitchWeapon> to perform a frontal disarm when the weapon turns red. Timing is very important
+
+Interact=<StringAliasBindings:GBA_Use> to interact with objects such as buttons and valves. Open the door
+RunnerSense=When you see that flash of red - you are feeling pressured to have to fight or to find another solution past enemies
+Combo=<StringAliasBindings:GBA_Jump>, <StringAliasBindings:GBA_Fire>, <StringAliasBindings:GBA_Fire>, <StringAliasBindings:GBA_Fire> to perform a powerful combination: jump kick, punch, punch
+RTDisarm=<StringAliasBindings:GBA_ReactionTime> enters slow motion when Reaction time is available (blue reticle). This makes it easy to disarm hostiles. Running generates Reaction Time
+OrAfterSixAxisIcon=or
+
+[TdSettingsMappings]
+Normal=NORMAL
+Inverted=INVERTED
+Easy=EASY
+Normal=NORMAL
+Hard=HARD
+On=ON
+Off=OFF
+Yes=YES
+No=NO
+Weekly=WEEKLY
+Monthly=MONTHLY
+Infinite=ALL TIME
+CenterPlayer=CENTER ON ME
+Friends=FRIENDS
+TopRanks=TOP RANKINGS
+TypeA=STANDARD
+TypeB=LEFT HANDED
+TypeC=SHOULDER SWAP
+TypeD=INVERTED
+Metric=METRIC
+Environment=HOSTILES OFF
+Imperial=IMPERIAL
+WeaponOnly=WEAPON ONLY
+TimeTrial=TIME TRIAL
+LevelRace=SPEED RUN
+
+[Presence]
+Offline=OFFLINE
+MainMenu=IN MAIN MENU
+Story=PLAYING STORY MODE: %MapName%
+TimeTrial=PLAYING TIME TRIAL: %MapName%
+LevelRace=PLAYING SPEED RUN: %MapName%
+
+[TdTransition]
+LoadingText=LOADING
+LoadingLevelText=LOADING CHAPTER
+LoadingMenuText=LOADING MAIN MENU
+HintText=Hint:
+SPHint_NumberOf=6
+SPHint_0=HINT: Don't try to take on groups of hostiles. The key to successful combat is to isolate your enemies and pick them off one at a time.
+SPHint_1=HINT: Pick your disarm opportunities carefully. It can be dangerous when other enemies have you in their sights.
+SPHint_2=HINT: Melee attacks such as flying kick and slide attack are more powerful than regular punches.
+SPHint_3=HINT: Wallrun kick will spin the enemy 180 degrees making for an easy disarm.
+SPHint_4=HINT: Remember to always look for alternative routes that may be faster or give you an advantage over enemies.
+SPHint_5=HINT: Runner bags and stash points can be found throughout the world if you look carefully enough.
+SPHint_6=HINT: Only tackle opponents that are highlighted by Runner Vision - all others you should run from.
+TTHint_NumberOf=9
+TTHint_0=HINT: Look for alternative routes that may win you a second or two.
+TTHint_1=HINT: Clear high obstacles and jump longer by coil jumping.
+TTHint_2=HINT: Download and study other players' ghosts in the leaderboard to learn new routes.
+TTHint_3=HINT: Beat qualifying times to receive stars and increase your skill rating.
+TTHint_4=HINT: A ghost will only be stored if you beat your personal best and a qualifying time.
+TTHint_5=HINT: Compare your skill rating in the leaderboard and race against any time and ghost.
+TTHint_6=HINT: Playing offline will not affect your online stats.
+TTHint_7=HINT: Beat a three-star qualifying time by completing a flawless run using the best possible route.
+TTHint_8=HINT: Speed vault over fences and other obstacles by timing the jump correctly.
+
+
+
+[TdUnlocks]
+TitleText=UNLOCKABLES
+ArtworkTabText=ARTWORK
+VideosTabText=VIDEOS
+MusicTabText=MUSIC
+LoadingText=LOADING...
+
+[TdSupersMessage]
+TestText=Here you enter Supers Messages
+SP00=Training Ground 11.15am
+SP01A=Financial District 1.58pm
+SP01B=West Arlington 5.21am
+SP02=Lower East Side 11.01am
+SP03=Ryding Park 12.08pm
+SP04=Renold's Street 7.17pm
+SP05=Downtown 9.07am
+SP06=The Docks 5.00pm
+SP07=The Harbour 11.45pm
+SP08=Looking Glass Gardens 1.12pm
+SP09=The Shard 9.55pm
+
+[TdSplashHints]
+TitleLabelText=HINT
+GamePausedText=GAME PAUSED
+SplashHint1=You should always try to get away from hostiles
+SplashHint1_image=<Images:TdUIResources_InGame_Hints.splash01>
+SplashHint2=Bags are hidden in stash points for collection or discarded by Runners in trouble. A runner glyph will indicate a stashpoint is nearby
+SplashHint2_image=<Images:TdUIResources_InGame_Hints.splash02>
+SplashHint3=Enemies you need to get through are marked red with Runner Vision. Fight them or run past them
+SplashHint3_image=<Images:TdUIResources_InGame_Hints.splash03>
+SplashHint4=If you are stuck and need guidance - holding <StringAliasBindings:GBA_LookAt> will point you in the right direction
+SplashHint4_image=<Images:TdUIResources_InGame_Hints.splash04>
+SplashHint5=Runner vision shows you movement and interactive opportunities. Keep your eyes open for red objects
+SplashHint5_image=<Images:TdUIResources_InGame_Hints.splash05>
+SplashHint6=Use <StringAliasBindings:GBA_Use> to interact with buttons like in this elevator. You can interact with various buttons and valves in the game
+SplashHint6_image=<Images:TdUIResources_InGame_Hints.splash06>
+SplashHint7=You can string together different moves and attacks. This will make you more effective in combat
+SplashHint7_image=<Images:TdUIResources_InGame_Hints.splash07>
+
+[TdPopUps]
+PopUp1=(press) to toggle zoom
+PopUp2=to view objectives
+PopUp3=to view challenges
+PopUp4=to skip
+PressButton=Press
+
+[EADMPatcher]
+EADMMissing="You need to install EA Download Manager in order to use the automatic update system. The installation file can be found in folder Support/EADM on your game disc."
+AvailablePatchInfo="The following patch is avalible:"
+AvailablePatchMsgBoxTitle="New patch avalable"
+AvailablePatchQuestion="Do you want to install this patch?"
+
+[TdSha]
+ShaErrorMessage=The game cannot start.
+ShaErrorReason=The file %FILE% is corrupt.
+ShaErrorAdvice=Please run the game installation again to repair corrupted data files.
+
+[TdDirectX]
+DXTDisabled=Failed to create DXT texture. This game requires DXT support. If you have manually disabled it, please re-enable and try again.
