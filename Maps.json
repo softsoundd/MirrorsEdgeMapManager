@@ -745,7 +745,7 @@
     },
 
     {"packname": "Pure Time Trials Prototypes",
-    "packdescription": "A collection of prototype Pure Time Trial maps from a leaked development Xbox 360 build (dated October 23, 2008). Ported to PC by Keku.",
+    "packdescription": "A collection of prototype Pure Time Trial maps from a leaked Xbox 360 development build (dated October 23, 2008). Ported to PC by Keku.",
     "author": "DICE",
     "date": "Oct 23rd, 2008",
     "url": "https://archive.mirrorsedgearchive.org/Mirror's%20Edge%20(2008)/Mods/unlisted_softsoundd/Mirror's%20Edge%20Map%20Manager/Custom%20Time%20Trials/Pure%20Time%20Trials%20Prototypes.zip",
@@ -2036,6 +2036,7 @@
 
   ]
 }
+
 
 
 
