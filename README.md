@@ -6,6 +6,8 @@ A tool for downloading, installing, and managing custom maps for Mirror's Edge.
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
 
+<img width="1236" height="793" alt="Screenshot 2026-03-12 205311" src="https://github.com/user-attachments/assets/ef5f072a-010b-4c45-bbb5-cfc4f91a8fa9" />
+
 ## Features
 
 - Curated map browser for:
