@@ -102,6 +102,11 @@ public class PathService
         return Path.Combine(GetMirrorsEdgeDocumentsPath(), "TdGame", "Config", "TdEngine.ini");
     }
 
+    public string GetDocumentsSavefilesPath()
+    {
+        return Path.Combine(GetMirrorsEdgeDocumentsPath(), "TdGame", "Savefiles");
+    }
+
     public bool ValidateGameInstallPath(string path)
     {
         if (string.IsNullOrEmpty(path))

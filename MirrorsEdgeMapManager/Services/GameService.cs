@@ -231,6 +231,13 @@ public class GameService
 
             if ((dependencyType == "CustomMapMenuMod" || dependencyType == "CustomMapMenuModTweaksUI") && !string.IsNullOrEmpty(gameInstallPath))
             {
+                progress?.Report((100, "Backing up save files..."));
+                var saveBackupResult = BackupSaveFiles();
+                if (!saveBackupResult.success)
+                {
+                    return (true, $"{displayName} installed successfully, but save backup failed: {saveBackupResult.message}");
+                }
+
                 if (dependencyType == "CustomMapMenuMod")
                 {
                     var cookedPcPath = _pathService.GetCookedPcPath();
@@ -511,6 +518,31 @@ public class GameService
             return;
 
         File.Copy(defaultGamePath, backupPath, false);
+    }
+
+    private (bool success, string message) BackupSaveFiles()
+    {
+        try
+        {
+            var savefilesPath = _pathService.GetDocumentsSavefilesPath();
+            if (!Directory.Exists(savefilesPath))
+            {
+                return (true, "Savefiles directory does not exist");
+            }
+
+            var saveFiles = Directory.GetFiles(savefilesPath, "*.dat", SearchOption.AllDirectories);
+            foreach (var saveFile in saveFiles)
+            {
+                var backupPath = Path.ChangeExtension(saveFile, ".bak");
+                File.Copy(saveFile, backupPath, true);
+            }
+
+            return (true, $"Backed up {saveFiles.Length} save file(s)");
+        }
+        catch (Exception ex)
+        {
+            return (false, ex.Message);
+        }
     }
 
     private (bool success, string message) EnsureTdEngineMemmDataStores()
