@@ -2360,7 +2360,7 @@ public partial class MainViewModel : ObservableObject
     {
         await DialogHelper.ShowMessageAsync(
             "About MEMM",
-            "Mirror's Edge Map Manager (MEMM) — Version 2.0.0\n" +
+            "Mirror's Edge Map Manager (MEMM) — Version 2.1.0\n" +
             "Developed by softsoundd\n\n" +
             "Credits:\n\n" +
             "• Keku for creating the Custom Map Menu mod\n\n" +
