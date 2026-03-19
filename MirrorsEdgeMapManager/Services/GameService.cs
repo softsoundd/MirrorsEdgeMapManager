@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.IO.Compression;
+using MirrorsEdgeMapManager.Helpers;
 
 namespace MirrorsEdgeMapManager.Services;
 
@@ -9,14 +10,6 @@ public class GameService
 {
     private readonly PathService _pathService;
     private readonly HttpClient _httpClient;
-
-    // Retail/GOG patterns
-    private static readonly byte[] RetailConfigPatternUnpatched = [0x01, 0x00, 0x00, 0x68, 0x98, 0x11, 0x05, 0x02, 0xC7, 0x05, 0xA0, 0x13, 0x05, 0x02, 0x01, 0x00];
-    private static readonly byte[] RetailConfigPatternPatched = [0x01, 0x00, 0x00, 0x68, 0x98, 0x11, 0x05, 0x02, 0xC7, 0x05, 0xA0, 0x13, 0x05, 0x02, 0x00, 0x00];
-    // Steam patterns
-    private static readonly byte[] SteamConfigPatternUnpatched = [0x01, 0x00, 0x00, 0x68, 0xD8, 0x80, 0x03, 0x02, 0xC7, 0x05, 0xE0, 0x82, 0x03, 0x02, 0x01, 0x00];
-    private static readonly byte[] SteamConfigPatternPatched = [0x01, 0x00, 0x00, 0x68, 0xD8, 0x80, 0x03, 0x02, 0xC7, 0x05, 0xE0, 0x82, 0x03, 0x02, 0x00, 0x00];
-    private const int ConfigPatchOffset = 14;
 
     // Dependency URLs
     private const string CustomMapMenuModUrl = "https://github.com/softsoundd/MirrorsEdgeMapManager/raw/refs/heads/main/Downloads/Dependencies/CustomMapMenuModDependency.zip";
@@ -38,8 +31,7 @@ public class GameService
         "; [Scene_{N} UIDataProvider_TdCustomSceneStretch]",
         string.Empty
     ]);
-    // Gamepass executable size
-    private const long GamepassExecutableSize = 31606704;
+    // Steam executable size
     private const long SteamExecutableSize = 31946072;
 
     public GameService(PathService pathService)
@@ -53,6 +45,8 @@ public class GameService
     {
         Patched,
         Unpatched,
+        Mixed,
+        NotApplicable,
         Unknown
     }
 
@@ -64,15 +58,14 @@ public class GameService
             if (!File.Exists(executablePath))
                 return PatchStatus.Unknown;
 
-            var data = File.ReadAllBytes(executablePath);
-            
-            if (ContainsPattern(data, RetailConfigPatternPatched) || ContainsPattern(data, SteamConfigPatternPatched))
-                return PatchStatus.Patched;
-            
-            if (ContainsPattern(data, RetailConfigPatternUnpatched) || ContainsPattern(data, SteamConfigPatternUnpatched))
-                return PatchStatus.Unpatched;
-
-            return PatchStatus.Unknown;
+            return ConfigUnlockHelper.GetState(executablePath) switch
+            {
+                ConfigUnlockState.Patched => PatchStatus.Patched,
+                ConfigUnlockState.Unpatched => PatchStatus.Unpatched,
+                ConfigUnlockState.Mixed => PatchStatus.Mixed,
+                ConfigUnlockState.NotApplicable => PatchStatus.NotApplicable,
+                _ => PatchStatus.Unknown
+            };
         }
         catch
         {
@@ -80,7 +73,7 @@ public class GameService
         }
     }
 
-    public Task<(bool success, string message)> ToggleConfigPatchAsync(
+    public async Task<(bool success, string message)> ToggleConfigPatchAsync(
         string gameInstallPath,
         IProgress<(int percentage, string status)>? progress = null)
     {
@@ -88,82 +81,38 @@ public class GameService
         {
             var executablePath = _pathService.GetExecutablePath(gameInstallPath);
             if (!File.Exists(executablePath))
-                return Task.FromResult((false, "Game executable not found"));
+                return (false, "Game executable not found");
 
-            var fileInfo = new FileInfo(executablePath);
-            
-            // Gamepass executable patching is currently unsupported (until EA App lets me launch it to debug)
-            if (fileInfo.Length == GamepassExecutableSize)
+            progress?.Report((20, "Reading executable state..."));
+
+            var currentState = ConfigUnlockHelper.GetState(executablePath);
+            if (currentState == ConfigUnlockState.NotApplicable)
             {
-                progress?.Report((100, "Gamepass executable detected - patching is not supported"));
-                return Task.FromResult((false, "MEMM currently does not support patching the Gamepass executable."));
+                progress?.Report((100, "Config patching is not applicable"));
+                return (false, "Config patching is not applicable for this executable.");
             }
 
-            progress?.Report((80, "Applying patch..."));
-            
-            var data = File.ReadAllBytes(executablePath);
-            var currentStatus = GetConfigPatchStatus(gameInstallPath);
+            var unlock = currentState != ConfigUnlockState.Patched;
+            progress?.Report((80, unlock ? "Applying patch..." : "Removing patch..."));
 
-            if (currentStatus == PatchStatus.Unpatched)
+            var patchChanged = await Task.Run(() => unlock
+                ? ConfigUnlockHelper.Unlock(executablePath)
+                : ConfigUnlockHelper.RestoreStock(executablePath));
+
+            progress?.Report((100, unlock ? "Patch applied" : "Patch removed"));
+
+            if (!patchChanged)
             {
-                int patchesApplied = 0;
-                
-                var retailIndex = FindPattern(data, RetailConfigPatternUnpatched);
-                if (retailIndex != -1)
-                {
-                    data[retailIndex + ConfigPatchOffset] = 0x00;
-                    patchesApplied++;
-                }
-                
-                var steamIndex = FindPattern(data, SteamConfigPatternUnpatched);
-                if (steamIndex != -1)
-                {
-                    data[steamIndex + ConfigPatchOffset] = 0x00;
-                    patchesApplied++;
-                }
-                
-                if (patchesApplied > 0)
-                {
-                    File.WriteAllBytes(executablePath, data);
-                    progress?.Report((100, "Patch applied"));
-                    return Task.FromResult((true, "Config modification patch applied successfully"));
-                }
-                
-                return Task.FromResult((false, "Failed to locate patch location"));
-            }
-            else if (currentStatus == PatchStatus.Patched)
-            {
-                int patchesRemoved = 0;
-                
-                var retailIndex = FindPattern(data, RetailConfigPatternPatched);
-                if (retailIndex != -1)
-                {
-                    data[retailIndex + ConfigPatchOffset] = 0x01;
-                    patchesRemoved++;
-                }
-                
-                var steamIndex = FindPattern(data, SteamConfigPatternPatched);
-                if (steamIndex != -1)
-                {
-                    data[steamIndex + ConfigPatchOffset] = 0x01;
-                    patchesRemoved++;
-                }
-                
-                if (patchesRemoved > 0)
-                {
-                    File.WriteAllBytes(executablePath, data);
-                    progress?.Report((100, "Patch removed"));
-                    return Task.FromResult((true, "Config modification patch removed successfully"));
-                }
-                
-                return Task.FromResult((false, "Failed to locate patch location"));
+                return (false, "The executable is already in the desired config patch state.");
             }
 
-            return Task.FromResult((false, "Unable to determine patch status"));
+            return unlock
+                ? (true, "Config modification patch applied successfully")
+                : (true, "Config modification patch removed successfully");
         }
         catch (Exception ex)
         {
-            return Task.FromResult((false, $"Error toggling patch: {ex.Message}"));
+            return (false, $"Error toggling patch: {ex.Message}");
         }
     }
 
@@ -475,30 +424,6 @@ public class GameService
         }
     }
 
-    private static bool ContainsPattern(byte[] data, byte[] pattern)
-    {
-        return FindPattern(data, pattern) != -1;
-    }
-
-    private static int FindPattern(byte[] data, byte[] pattern)
-    {
-        for (int i = 0; i <= data.Length - pattern.Length; i++)
-        {
-            bool found = true;
-            for (int j = 0; j < pattern.Length; j++)
-            {
-                if (data[i + j] != pattern[j])
-                {
-                    found = false;
-                    break;
-                }
-            }
-            if (found)
-                return i;
-        }
-        return -1;
-    }
-
     private static bool EnsureSeedFileExists(string targetPath, string content)
     {
         if (File.Exists(targetPath))
@@ -530,7 +455,7 @@ public class GameService
                 return (true, "Savefiles directory does not exist");
             }
 
-            var saveFiles = Directory.GetFiles(savefilesPath, "*.dat", SearchOption.AllDirectories);
+            var saveFiles = Directory.GetFiles(savefilesPath, "*.dat", SearchOption.TopDirectoryOnly);
             foreach (var saveFile in saveFiles)
             {
                 var backupPath = Path.ChangeExtension(saveFile, ".bak");

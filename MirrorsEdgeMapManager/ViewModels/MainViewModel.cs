@@ -303,7 +303,7 @@ public partial class MainViewModel : ObservableObject
     {
         if (!IsValidGamePath)
         {
-            PatchStatus = "Patch: Invalid game path";
+            PatchStatus = "Unlocked Configs: Invalid game path";
             PatchStatusValue = "Invalid Path";
             PatchStatusColor = "#C62828";
             PatchStatusBackground = "#FFEBEE";
@@ -315,21 +315,35 @@ public partial class MainViewModel : ObservableObject
         switch (status)
         {
             case GameService.PatchStatus.Patched:
-                PatchStatus = "Patch: Active";
-                PatchStatusValue = "Active";
+                PatchStatus = "Unlocked Configs: Patched";
+                PatchStatusValue = "Patched";
                 PatchStatusColor = "#2E7D32";
                 PatchStatusBackground = "#E8F5E9";
                 IsPatchActive = true;
                 break;
             case GameService.PatchStatus.Unpatched:
-                PatchStatus = "Patch: Inactive";
-                PatchStatusValue = "Inactive";
-                PatchStatusColor = "#C62828";
-                PatchStatusBackground = "#FFEBEE";
+                PatchStatus = "Unlocked Configs: Unpatched";
+                PatchStatusValue = "Unpatched";
+                PatchStatusColor = "#757575";
+                PatchStatusBackground = "#F5F5F5";
+                IsPatchActive = false;
+                break;
+            case GameService.PatchStatus.Mixed:
+                PatchStatus = "Unlocked Configs: Partially Patched";
+                PatchStatusValue = "Partially Patched";
+                PatchStatusColor = "#EF6C00";
+                PatchStatusBackground = "#FFF3E0";
+                IsPatchActive = false;
+                break;
+            case GameService.PatchStatus.NotApplicable:
+                PatchStatus = "Unlocked Configs: Not Applicable";
+                PatchStatusValue = "Not Applicable";
+                PatchStatusColor = "#757575";
+                PatchStatusBackground = "#F5F5F5";
                 IsPatchActive = false;
                 break;
             default:
-                PatchStatus = "Patch: Unknown";
+                PatchStatus = "Unlocked Configs: Unknown";
                 PatchStatusValue = "Unknown";
                 PatchStatusColor = "#EF6C00";
                 PatchStatusBackground = "#FFF3E0";
@@ -2140,7 +2154,7 @@ public partial class MainViewModel : ObservableObject
                 "Steam Version Detected",
                 "The Steam version of Mirror's Edge has been detected.\n\n" +
                 "Some users may encounter an 'Application load error' when launching outside of Steam.\n\n" +
-                "Do you wish to try launching anyway?");
+                "Do you wish to try launching outside of Steam anyway?");
 
             if (!result)
                 return;

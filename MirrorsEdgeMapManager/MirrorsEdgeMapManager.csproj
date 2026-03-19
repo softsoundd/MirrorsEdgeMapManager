@@ -9,10 +9,10 @@
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 		
 		<!-- Version Information -->
-		<Version>2.0.0</Version>
-		<AssemblyVersion>2.0.0.0</AssemblyVersion>
-		<FileVersion>2.0.0.0</FileVersion>
-		<InformationalVersion>2.0.0</InformationalVersion>
+		<Version>2.1.0</Version>
+		<AssemblyVersion>2.1.0.0</AssemblyVersion>
+		<FileVersion>2.1.0.0</FileVersion>
+		<InformationalVersion>2.1.0</InformationalVersion>
 		<AssemblyName>MirrorsEdgeMapManager</AssemblyName>
 		<Product>MirrorsEdgeMapManager</Product>
 		<AssemblyTitle>MirrorsEdgeMapManager</AssemblyTitle>
