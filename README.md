@@ -22,8 +22,8 @@ A tool for downloading, installing, and managing custom maps for Mirror's Edge.
 
 - **OS**: Windows 10 or later
 - **.NET Runtime**: .NET 8.0 or later
-- **Game**: Mirror's Edge (Steam, GOG, EA/Retail)
-  - **Note**: Gamepass executable patching is currently unsupported (until EA App decides to let me launch the games I've paid for so I can debug them)
+- **Game**: Mirror's Edge (Steam, GOG, EA App/Xbox Game Pass for PC, Retail platforms). Versions 1.0.0.0 - 1.0.1.0 supported.
+  - **Note**: Version 1.1.0.0 DLC is not currently supported due to the way MEMM replicates DLC functionality on lower versions.
 
 ## Installation
 
