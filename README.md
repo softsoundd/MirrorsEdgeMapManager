@@ -29,7 +29,8 @@ If you like what I do and would like to support my work, please consider visitin
 - **OS**: Windows 10 or later
 - **.NET Runtime**: .NET 8.0 or later
 - **Game**: Mirror's Edge (Steam, GOG, EA App/Xbox Game Pass for PC, Retail platforms). Versions 1.0.0.0 - 1.0.1.0 supported.
-  - **Note**: Version 1.1.0.0 DLC is not currently supported due to the way MEMM replicates DLC functionality on lower versions.
+> [!NOTE]
+> Version 1.1.0.0 DLC is not currently supported due to the way MEMM replicates DLC functionality on lower versions.
 
 ## Installation
 
@@ -66,13 +67,6 @@ dotnet restore MirrorsEdgeMapManager/MirrorsEdgeMapManager.sln
 dotnet build MirrorsEdgeMapManager/MirrorsEdgeMapManager.sln
 ```
 
-## Dependencies
-
-- **MaterialDesignThemes** (v5.2.1)
-- **CommunityToolkit.Mvvm** (v8.3.2)
-- **System.Text.Json** (v9.0.0)
-- **System.Text.Encoding.CodePages** (v9.0.0)
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
@@ -91,8 +85,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Changelog
 
 Refer to the [CHANGELOG](CHANGELOG.md) file for changes.
-
----
-
-Made with ❤️ by softsoundd
-
