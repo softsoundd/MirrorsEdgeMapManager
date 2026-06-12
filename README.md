@@ -6,7 +6,13 @@ A tool for downloading, installing, and managing custom maps for Mirror's Edge.
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
 
-<img width="1236" height="793" alt="Screenshot 2026-03-12 205311" src="https://github.com/user-attachments/assets/ef5f072a-010b-4c45-bbb5-cfc4f91a8fa9" />
+<img width="960" height="540" alt="MEMM" src="https://github.com/user-attachments/assets/7ad3ba2b-b248-420c-9c57-cd92c164bbe2" />
+
+&nbsp;
+
+[![Ko-fi](https://img.shields.io/badge/support_me_on_ko--fi-F16061?style=for-the-badge&logo=kofi&logoColor=f5f5f5)](https://ko-fi.com/softsoundd)
+
+If you like what I do and would like to support my work, please consider visiting my Ko-fi page.
 
 ## Features
 
